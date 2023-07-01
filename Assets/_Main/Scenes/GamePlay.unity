@@ -1433,7 +1433,7 @@ Transform:
   - {fileID: 538254062}
   - {fileID: 133296003}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1126624465
 GameObject:
@@ -1580,8 +1580,8 @@ Transform:
   - {fileID: 742340397}
   - {fileID: 749865662}
   - {fileID: 961453685}
-  m_Father: {fileID: 1363626804}
-  m_RootOrder: -1
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1357086211
 MonoBehaviour:
@@ -1628,7 +1628,6 @@ Transform:
   m_Children:
   - {fileID: 1773893053}
   - {fileID: 271466705}
-  - {fileID: 1357086210}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2182,6 +2181,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034b21e6fd079c74d8bdda7f8418bb39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentRotationElement: 0
+  _listRotationElement:
+  - Speed: 200
+    Duration: 4
+  - Speed: -100
+    Duration: 6
+  _delay: 1
 --- !u!58 &2625557544543256448
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2309,7 +2315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2640a5453b52447a1f7fb32355517a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 10
+  _maxHealth: 5
   _currentHealth: 1
 --- !u!114 &7323122259483680858
 MonoBehaviour:
