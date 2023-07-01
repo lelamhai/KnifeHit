@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class InputPCManager : MonoBehaviour
 {
     public Vector2 _MovementPos { get; private set; }
-    public UnityAction<bool> _Space = null;
 
     private void Update()
     {
@@ -33,7 +32,6 @@ public class InputPCManager : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            _Space?.Invoke(true);
         }
     }
 
@@ -41,7 +39,7 @@ public class InputPCManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            _Space?.Invoke(false);
+            GameManager.Instance.Shooting();
         }
     }
 }

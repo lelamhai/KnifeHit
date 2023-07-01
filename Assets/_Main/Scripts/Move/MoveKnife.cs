@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class MoveKnife : BaseMonoBehaviour
 {
-    [SerializeField] private bool _isMovement = true;
+    [SerializeField] private bool _isMovement = false;
     [SerializeField] private float _speed = 2f;
     [SerializeField] private Rigidbody2D _rigidbody2D;
+
+    public void SetMovement()
+    {
+        _isMovement = true;
+    }
 
     private void Update()
     {

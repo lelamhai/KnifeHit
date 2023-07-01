@@ -10,4 +10,10 @@ public class ImpactKnife : BaseImpact
         _rigidbody2D.velocity = Vector2.zero;
         _rigidbody2D.isKinematic = true;
     }
+
+    protected override void LoadComponent()
+    {
+        base.LoadComponent();
+        _rigidbody2D = this.GetComponent<Rigidbody2D>();
+    }
 }

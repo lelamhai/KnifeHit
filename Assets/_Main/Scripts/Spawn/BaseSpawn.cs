@@ -7,6 +7,7 @@ public abstract class BaseSpawn : BaseMonoBehaviour
     [Header("Base Spawn")]
     [SerializeField] protected BasePrefabs _basePrefabs = null;
     [SerializeField] protected BaseHolders _baseHolders = null;
+    [SerializeField] protected Transform _point = null;
 
     public void SpawnGameObject(string name, Vector3 point)
     {
@@ -24,6 +25,27 @@ public abstract class BaseSpawn : BaseMonoBehaviour
         }
     }
 
+    public Transform SpawnGameObjectReturn(string name, Vector3 point)
+    {
+        Transform gameObject = null;
+
+        if (_baseHolders.CountPool(name) > 0)
+        {
+            gameObject = _baseHolders.UndoGameObject(name);
+            if (gameObject == null) return null;
+            SetUndoGameObject(gameObject, name, point);
+            RemoveGameObjectPool(gameObject);
+        }
+        else
+        {
+            gameObject = _basePrefabs.CloneGameObject(name);
+            if (gameObject == null) return null;
+            SetUndoGameObject(gameObject, name, point);
+        }
+
+        return gameObject;
+    }
+
     private void SetUndoGameObject(Transform gameObject, string name, Vector3 point)
     {
         gameObject.SetPositionAndRotation(point, Quaternion.identity);
@@ -39,6 +61,9 @@ public abstract class BaseSpawn : BaseMonoBehaviour
 
         Transform holder = transform.Find("Holders");
         _baseHolders = holder.GetComponent<BaseHolders>();
+
+        _point = transform.Find("Point");
+       
     }
 
     public void AddGameObjectPool(Transform gameobject)

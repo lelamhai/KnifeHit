@@ -11,7 +11,7 @@ public class ReceiveDamageWheel : BaseReceiveDamage
 
     protected override void DeadGameObject()
     {
-
+        Destroy(gameObject);
     }
 
     protected override void SetDefaultValue()
