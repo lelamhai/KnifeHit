@@ -21,6 +21,28 @@ public abstract class BasePrefabs : BaseMonoBehaviour
         }
     }
 
+    public virtual void ShowPrefab(string name)
+    {
+        foreach (var item in _listPrefabs)
+        {
+            if (item.name.Equals(name))
+            {
+                item.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public virtual void HidePrefab(string name)
+    {
+        foreach (var item in _listPrefabs)
+        {
+            if (item.name.Equals(name))
+            {
+                item.gameObject.SetActive(false);
+            }
+        }
+    }
+
     public Transform CloneGameObject(string name)
     {
         foreach (var item in _listPrefabs)

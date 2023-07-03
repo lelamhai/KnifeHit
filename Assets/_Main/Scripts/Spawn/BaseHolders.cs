@@ -47,4 +47,26 @@ public abstract class BaseHolders : BaseMonoBehaviour
         }
         return null;
     }
+
+    public void ResetGame()
+    {
+        RemoveAllGameObject();
+        RemoveAllDataList();
+    }
+
+    private void RemoveAllGameObject()
+    {
+        if (transform.childCount > 0)
+        {
+            foreach (Transform child in transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+    }
+
+    private void RemoveAllDataList()
+    {
+        _listPoolObject.Clear();
+    }
 }

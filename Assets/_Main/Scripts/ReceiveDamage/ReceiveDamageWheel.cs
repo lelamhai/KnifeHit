@@ -4,18 +4,28 @@ using UnityEngine;
 
 public class ReceiveDamageWheel : BaseReceiveDamage
 {
-    private void OnEnable()
+    [SerializeField] private SettingWheel _settingWheel;
+    [SerializeField] private DeadWheel _deadWheel;
+
+    private void Start()
     {
+        _maxHealth = _settingWheel.GetHealth();
         _currentHealth = _maxHealth;
     }
 
     protected override void DeadGameObject()
     {
+        _deadWheel.PlaySoundDead();
+        GameManager.Instance.SetStage(GameStates.FinishLevel);
         Destroy(gameObject);
     }
 
     protected override void SetDefaultValue()
+    {}
+
+    protected override void LoadComponent()
     {
-        _maxHealth = 10;
+        _deadWheel = this.GetComponent<DeadWheel>();
+        _settingWheel = this.GetComponent<SettingWheel>();
     }
 }

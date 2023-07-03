@@ -35,7 +35,7 @@ public class InputMouseManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-
+            GameManager.Instance.Shooting();
         }
     }
 

@@ -2,28 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wheel : MonoBehaviour
+public class SettingWheel : BaseMonoBehaviour
 {
-    [SerializeField] private int _currentRotationElement = 0;
-    [SerializeField] private List<RotationElement> _listRotationElement = new List<RotationElement>();
+    [SerializeField] private int _countKnife = 3;
 
+    [SerializeField] private List<RotationElement> _listRotationElement = new List<RotationElement>();
+    [SerializeField] private int _currentRotationElement = 0;
     [SerializeField] private bool _delay = true;
+
     private float _speed = 0;
     private float _duration = 0;
 
-    [System.Serializable]
-    private class RotationElement
+    private void Awake()
     {
-        public float Speed;
-        public float Duration;
-    }
-
-
-    private void Start()
-    {
-        _currentRotationElement = Random.Range(0, _listRotationElement.Count - 1);
-        _speed = _listRotationElement[_currentRotationElement].Speed;
-        _duration = _listRotationElement[_currentRotationElement].Duration;
+        GameManager.Instance.SetupLevel(_countKnife);
     }
 
     private void FixedUpdate()
@@ -39,10 +31,25 @@ public class Wheel : MonoBehaviour
         _delay = false;
         _currentRotationElement = Random.Range(0, _listRotationElement.Count);
         _speed = _listRotationElement[_currentRotationElement].Speed;
-        Debug.Log("_speed: " + _speed);
         _duration = _listRotationElement[_currentRotationElement].Duration;
         yield return new WaitForSeconds(_duration);
         _delay = true;
-
     }
+
+    public int GetHealth()
+    {
+        return _countKnife;
+    }
+
+    protected override void SetDefaultValue()
+    {
+        _countKnife = 4;
+    }
+}
+
+[System.Serializable]
+struct RotationElement
+{
+    public float Speed;
+    public float Duration;
 }
