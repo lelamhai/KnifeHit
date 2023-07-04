@@ -28,6 +28,11 @@ public class LevelManager : Singleton<LevelManager>
         GameManager.Instance._ResetGame -= LoadLevel;
     }
 
+    public int GetLevel()
+    {
+        return _level;
+    }
+
     private void LevelUp()
     {
         _level++;

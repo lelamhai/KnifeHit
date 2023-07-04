@@ -19,6 +19,8 @@ public class SpawnKnife : SingletonSpawn<SpawnKnife>
         GameManager.Instance._StartGame += StartGame;
         GameManager.Instance._SetupLevel += SetupLevel;
         GameManager.Instance._EndGame += EndGame;
+        GameManager.Instance._NextLevelUp += EndGame;
+        GameManager.Instance._FinishGame += EndGame;
     }
 
     private void OnDisable()
@@ -26,10 +28,13 @@ public class SpawnKnife : SingletonSpawn<SpawnKnife>
         GameManager.Instance._StartGame -= StartGame;
         GameManager.Instance._SetupLevel -= SetupLevel;
         GameManager.Instance._EndGame -= EndGame;
+        GameManager.Instance._NextLevelUp -= EndGame;
+        GameManager.Instance._FinishGame -= EndGame;
     }
 
     private void SetupLevel(int count)
     {
+        StartGame();
         Clear();
         Initial(count);
     }

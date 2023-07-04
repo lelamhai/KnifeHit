@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4897659951987223152}
   - component: {fileID: 351061564812147594}
   - component: {fileID: 9093756155541947746}
+  - component: {fileID: 3129774852025207391}
   - component: {fileID: 203405595678864626}
   m_Layer: 0
   m_Name: Knife1
@@ -203,6 +204,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 1
   _currentHealth: 1
+--- !u!114 &3129774852025207391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094847816284766755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce8366c107e8ae948ab7ca4115c3e6f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 8cb826fb9630067479a432ddc1e745a7, type: 3}
 --- !u!114 &203405595678864626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,3 +231,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseDamage: {fileID: 351061564812147594}
   _rigidbody2D: {fileID: 1061476644776381524}
+  _hitKnife: {fileID: 3129774852025207391}

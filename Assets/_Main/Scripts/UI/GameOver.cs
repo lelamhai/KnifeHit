@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GameOver : MonoBehaviour
+public class GameOver : BaseMonoBehaviour
 {
     [SerializeField] private TMP_Text _level;
 
     public void Show()
     {
         this.gameObject.SetActive(true);
+        SetLevel();
     }
 
     public void Hide()
@@ -19,13 +20,18 @@ public class GameOver : MonoBehaviour
         ResetGame();
     }
 
-    public void SetLevel(int level)
+    private void SetLevel()
     {
-        _level.text = "Level: " + level;
+        _level.text = "Level: " + LevelManager.Instance.GetLevel();
     }
 
     private void ResetGame()
     {
         GameManager.Instance.SetStage(GameStates.ResetGame);
+    }
+
+    protected override void SetDefaultValue()
+    {
+        _level = this.transform.Find("Level").GetComponent<TMP_Text>();
     }
 }
