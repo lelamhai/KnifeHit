@@ -56,7 +56,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void SetStage(GameStates state)
+    public void SetState(GameStates state)
     {
         _currentStage = state;
         UpdateGameStates();
@@ -65,11 +65,6 @@ public class GameManager : Singleton<GameManager>
     public void SetupLevel(int count)
     {
         _SetupLevel?.Invoke(count);
-    }
-
-    public void Shooting()
-    {
-        SpawnKnife.Instance.Shooting();
     }
 
     protected override void SetDefaultValue()

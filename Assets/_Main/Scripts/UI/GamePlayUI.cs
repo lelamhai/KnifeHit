@@ -11,12 +11,12 @@ public class GamePlayUI : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.Instance._ResetGame += Setuplevel;
+        //GameManager.Instance._ResetGame += Setuplevel;
     }
 
     private void OnDisable()
     {
-        GameManager.Instance._ResetGame -= Setuplevel;
+        //GameManager.Instance._ResetGame -= Setuplevel;
     }
 
     private void Setuplevel()
@@ -65,7 +65,6 @@ public class GamePlayUI : MonoBehaviour
 
     public void Shooting()
     {
-        SpawnKnife.Instance.Shooting();
+        InputManager.Instance.Shooting();
     }
-
 }

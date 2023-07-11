@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class InputPCManager : MonoBehaviour
+public class InputKeyboard : MonoBehaviour
 {
     public Vector2 _MovementPos { get; private set; }
 
     private void Update()
     {
-        Movement2D();
         Space();
+        //Movement2D();
     }
 
     private void Movement2D()
@@ -39,7 +39,7 @@ public class InputPCManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            GameManager.Instance.Shooting();
+            InputManager.Instance.Shooting();
         }
     }
 }

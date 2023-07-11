@@ -21,6 +21,8 @@ public class SpawnKnife : SingletonSpawn<SpawnKnife>
         GameManager.Instance._GameOver += EndGame;
         GameManager.Instance._NextLevelUp += EndGame;
         GameManager.Instance._FinishGame += EndGame;
+
+        InputManager.Instance._Shooting += Shooting;
     }
 
     private void OnDisable()
@@ -30,6 +32,8 @@ public class SpawnKnife : SingletonSpawn<SpawnKnife>
         GameManager.Instance._GameOver -= EndGame;
         GameManager.Instance._NextLevelUp -= EndGame;
         GameManager.Instance._FinishGame -= EndGame;
+
+        InputManager.Instance._Shooting -= Shooting;
     }
 
     private void SetupLevel(int count)
@@ -65,7 +69,7 @@ public class SpawnKnife : SingletonSpawn<SpawnKnife>
         }
     }
 
-    public void Shooting()
+    private void Shooting()
     {
         if (!_isShooting) return;
 
@@ -75,7 +79,7 @@ public class SpawnKnife : SingletonSpawn<SpawnKnife>
         var box = _baseHolders.transform.GetChild(0).GetComponent<BoxCollider2D>();
         box.enabled = true;
 
-        UIManger.Instance.Shooting();
+        //UIManger.Instance.Shooting();
     }
     protected override void SetDefaultValue()
     {}

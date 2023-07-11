@@ -4,19 +4,9 @@ using UnityEngine;
 
 public class MainMenuUI : MonoBehaviour
 {
-    public void Show()
+    public void StartGame()
     {
-        this.gameObject.SetActive(true);
-    }
-
-    public void Hide()
-    {
-        this.gameObject.SetActive(false);
-        StartGame();
-    }
-
-    private void StartGame()
-    {
-        GameManager.Instance.SetStage(GameStates.StartGame);
+        GameManager.Instance.SetState(GameStates.StartGame);
+        UIManager.Instance.SetPanelState(TypePanelUI.GamePlay, this.gameObject);
     }
 }

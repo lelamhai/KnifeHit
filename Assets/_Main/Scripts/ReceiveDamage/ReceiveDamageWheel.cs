@@ -16,7 +16,7 @@ public class ReceiveDamageWheel : BaseReceiveDamage
     protected override void DeadGameObject()
     {
         _deadWheel.PlaySoundDead();
-        GameManager.Instance.SetStage(GameStates.FinishLevel);
+        GameManager.Instance.SetState(GameStates.FinishLevel);
         Destroy(gameObject);
     }
 

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputMouseManager : MonoBehaviour
+public class InputMouse : MonoBehaviour
 {
     private void Update()
     {
@@ -35,7 +35,7 @@ public class InputMouseManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GameManager.Instance.Shooting();
+            InputManager.Instance.Shooting();
         }
     }
 

@@ -7,26 +7,27 @@ public class LevelUpUI : BaseMonoBehaviour
 {
     [SerializeField] private TMP_Text _textLevel;
 
-    public void Show()
-    {
-        this.gameObject.SetActive(true);
-        SetLevel();
-    }
+    //public void Show()
+    //{
+    //    this.gameObject.SetActive(true);
+    //    SetLevel();
+    //}
 
-    private void SetLevel()
-    {
-        _textLevel.text = "Level: " + LevelManager.Instance.GetLevel();
-    }
+    //private void SetLevel()
+    //{
+    //    _textLevel.text = "Level: " + LevelManager.Instance.GetLevel();
+    //}
 
-    public void Hide()
-    {
-        this.gameObject.SetActive(false);
-        NextLevel();
-    }
+    //public void Hide()
+    //{
+    //    this.gameObject.SetActive(false);
+    //    NextLevel();
+    //}
 
-    private void NextLevel()
+    public void NextLevel()
     {
-        GameManager.Instance.SetStage(GameStates.ResetGame);
+        GameManager.Instance.SetState(GameStates.ResetGame);
+        UIManager.Instance.SetPanelState(TypePanelUI.GamePlay, this.gameObject);
     }
 
     protected override void SetDefaultValue()
