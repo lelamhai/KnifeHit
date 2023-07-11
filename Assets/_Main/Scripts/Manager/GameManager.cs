@@ -12,13 +12,13 @@ public enum GameStates
     FinishLevel,
     NextLevelUp,
     FinishGame,
-    EndGame
+    GameOver
 }
 
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private GameStates _currentStage = GameStates.None;
-    public UnityAction _StartGame, _EndGame, _ResetGame, _FinishLevel, _NextLevelUp, _FinishGame;
+    public UnityAction _StartGame, _GameOver, _ResetGame, _FinishLevel, _NextLevelUp, _FinishGame;
 
     public UnityAction<int> _SetupLevel;
 
@@ -34,8 +34,8 @@ public class GameManager : Singleton<GameManager>
 
                 break;
 
-            case GameStates.EndGame:
-                _EndGame?.Invoke();
+            case GameStates.GameOver:
+                _GameOver?.Invoke();
                 break;
 
             case GameStates.FinishLevel:

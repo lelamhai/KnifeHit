@@ -18,7 +18,7 @@ public class SpawnKnife : SingletonSpawn<SpawnKnife>
     {
         GameManager.Instance._StartGame += StartGame;
         GameManager.Instance._SetupLevel += SetupLevel;
-        GameManager.Instance._EndGame += EndGame;
+        GameManager.Instance._GameOver += EndGame;
         GameManager.Instance._NextLevelUp += EndGame;
         GameManager.Instance._FinishGame += EndGame;
     }
@@ -27,7 +27,7 @@ public class SpawnKnife : SingletonSpawn<SpawnKnife>
     {
         GameManager.Instance._StartGame -= StartGame;
         GameManager.Instance._SetupLevel -= SetupLevel;
-        GameManager.Instance._EndGame -= EndGame;
+        GameManager.Instance._GameOver -= EndGame;
         GameManager.Instance._NextLevelUp -= EndGame;
         GameManager.Instance._FinishGame -= EndGame;
     }

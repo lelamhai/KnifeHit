@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GameOver : BaseMonoBehaviour
+public class GameOverUI : BaseMonoBehaviour
 {
     [SerializeField] private TMP_Text _level;
 

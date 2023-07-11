@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class UIManger : Singleton<UIManger>
 {
-    [SerializeField] private GamePlay _gamePlay;
-    [SerializeField] private MainMenu _mainMenu;
-    [SerializeField] private GameOver _gameOver;
-    [SerializeField] private PauseGame _pauseGame;
-    [SerializeField] private SettingGame _settingGame;
-    [SerializeField] private LevelUp _levelUp;
-    [SerializeField] private FinishGame _finishGame;
+    [SerializeField] private GamePlayUI _gamePlay;
+    [SerializeField] private MainMenuUI _mainMenu;
+    [SerializeField] private GameOverUI _gameOver;
+    [SerializeField] private PauseGameUI _pauseGame;
+    [SerializeField] private SettingGameUI _settingGame;
+    [SerializeField] private LevelUpUI _levelUp;
+    [SerializeField] private FinishGameUI _finishGame;
 
     private void OnEnable()
     {
-        GameManager.Instance._EndGame += ShowGameOver;
+        GameManager.Instance._GameOver += ShowGameOver;
         GameManager.Instance._SetupLevel += SetupLevel;
         GameManager.Instance._NextLevelUp += NextLevel;
         GameManager.Instance._FinishGame += Finish;
@@ -28,7 +28,7 @@ public class UIManger : Singleton<UIManger>
 
     private void OnDisable()
     {
-        GameManager.Instance._EndGame -= ShowGameOver;
+        GameManager.Instance._GameOver -= ShowGameOver;
         GameManager.Instance._SetupLevel -= SetupLevel;
         GameManager.Instance._NextLevelUp -= NextLevel;
         GameManager.Instance._FinishGame += Finish;
@@ -59,12 +59,12 @@ public class UIManger : Singleton<UIManger>
 
     protected override void LoadComponent()
     {
-        _gamePlay = this.transform.Find("GamePlay").GetComponent<GamePlay>();
-        _mainMenu = this.transform.Find("MainMenu").GetComponent<MainMenu>();
-        _gameOver = this.transform.Find("GameOver").GetComponent<GameOver>();
-        _pauseGame = this.transform.Find("PauseGame").GetComponent<PauseGame>();
-        _settingGame = this.transform.Find("SettingGame").GetComponent<SettingGame>();
-        _levelUp = this.transform.Find("LevelUp").GetComponent<LevelUp>();
-        _finishGame = this.transform.Find("FinishGame").GetComponent<FinishGame>();
+        _gamePlay = this.transform.Find("GamePlay").GetComponent<GamePlayUI>();
+        _mainMenu = this.transform.Find("MainMenu").GetComponent<MainMenuUI>();
+        _gameOver = this.transform.Find("GameOver").GetComponent<GameOverUI>();
+        _pauseGame = this.transform.Find("PauseGame").GetComponent<PauseGameUI>();
+        _settingGame = this.transform.Find("SettingGame").GetComponent<SettingGameUI>();
+        _levelUp = this.transform.Find("LevelUp").GetComponent<LevelUpUI>();
+        _finishGame = this.transform.Find("FinishGame").GetComponent<FinishGameUI>();
     }
 }

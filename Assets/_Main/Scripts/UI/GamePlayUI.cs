@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GamePlay : MonoBehaviour
+public class GamePlayUI : MonoBehaviour
 {
     [SerializeField] private Transform _parent;
     [SerializeField] private GameObject _PrefabImageKnife;
@@ -61,6 +61,11 @@ public class GamePlay : MonoBehaviour
         {
             _listImageKnife.Clear();
         }
+    }
+
+    public void Shooting()
+    {
+        SpawnKnife.Instance.Shooting();
     }
 
 }

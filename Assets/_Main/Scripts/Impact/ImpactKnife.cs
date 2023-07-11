@@ -27,7 +27,7 @@ public class ImpactKnife : BaseImpact
     private IEnumerator EndGame()
     {
         yield return new WaitForSeconds(0.5f);
-        GameManager.Instance.SetStage(GameStates.EndGame);
+        GameManager.Instance.SetStage(GameStates.GameOver);
     }
 
 

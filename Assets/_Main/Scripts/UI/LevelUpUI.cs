@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class LevelUp : BaseMonoBehaviour
+public class LevelUpUI : BaseMonoBehaviour
 {
     [SerializeField] private TMP_Text _textLevel;
 

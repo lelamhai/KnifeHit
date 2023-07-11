@@ -8,7 +8,7 @@ public class Testing : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            GameManager.Instance.SetStage(GameStates.EndGame);
+            GameManager.Instance.SetStage(GameStates.GameOver);
         }
     }
 }

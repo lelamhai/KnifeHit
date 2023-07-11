@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 883678548103871248}
   - component: {fileID: 1284937873426578170}
-  - component: {fileID: -4431872470968643409}
+  - component: {fileID: -6955816831466706210}
   - component: {fileID: 871129301042143633}
   - component: {fileID: 1170704899672192254}
   - component: {fileID: 4976759253735565899}
@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7187064263082329640}
   - component: {fileID: 3081516737334713881}
   m_Layer: 0
-  m_Name: Level 2
+  m_Name: Level 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 3fc4b44e54037284e8a517ce1870d28c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77bed04e4bc472141a882eecdbc29f36, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91,7 +91,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &-4431872470968643409
+--- !u!61 &-6955816831466706210
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
