@@ -38,12 +38,12 @@ public class LevelManager : Singleton<LevelManager>
         _level++;
         if (_level <= _listAllLevel.Count-1)
         {
-            GameManager.Instance.SetState(GameStates.NextLevelUp);
-            UIManager.Instance.SetPanelState(TypePanelUI.LevelUp);
+            GameManager.Instance.SetState(GameState.NextLevelUp);
+            //UIManager.Instance.SetPanelState(PanelName.LevelUp);
         } else
         {
-            GameManager.Instance.SetState(GameStates.FinishGame);
-            UIManager.Instance.SetPanelState(TypePanelUI.FinishGame);
+            GameManager.Instance.SetState(GameState.FinishGame);
+            //UIManager.Instance.SetPanelState(PanelName.FinishGame);
         }
     }
 

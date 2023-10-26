@@ -24,9 +24,6 @@ public abstract class BaseImpact : BaseMonoBehaviour
     protected abstract void HitGameObject(Collision2D collision);
 
     protected override void SetDefaultValue()
-    {}
-
-    protected override void LoadComponent()
     {
         _baseDamage = this.GetComponent<BaseDamage>();
     }

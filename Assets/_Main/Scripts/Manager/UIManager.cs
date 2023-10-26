@@ -1,11 +1,68 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-public enum TypePanelUI
+
+public class UIManager : Singleton<UIManager>
 {
-    GamePlay,
+    [SerializeField] private List<GameObject> _listPanel = new List<GameObject>();
+    [SerializeField] private PanelName _currentPanelName = PanelName.MainMenu;
+
+    private void Awake()
+    {
+        SetPanelState(_currentPanelName, StatePanel.Show);
+    }
+
+    public void SetPanelState(PanelName namePanel, StatePanel statePanel)
+    {
+        _currentPanelName = namePanel;
+        switch (statePanel)
+        {
+            case StatePanel.Show:
+                ShowPanel();
+                break;
+
+            case StatePanel.Hide:
+                HidePanel();
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private void ShowPanel()
+    {
+        GameObject panel = _listPanel.Where(obj => obj.name == _currentPanelName.ToString()).SingleOrDefault();
+        if (panel == null) return;
+        panel.SetActive(true);
+    }
+
+    private void HidePanel()
+    {
+        GameObject panel = _listPanel.Where(obj => obj.name == _currentPanelName.ToString()).SingleOrDefault();
+        if (panel == null) return;
+        panel.SetActive(false);
+    }
+
+    protected override void SetDefaultValue()
+    {
+        LoadAllPanelUI();
+    }
+
+    private void LoadAllPanelUI()
+    {
+        Transform parent = this.transform;
+        foreach (Transform item in parent)
+        {
+            item.gameObject.SetActive(false);
+            _listPanel.Add(item.gameObject);
+        }
+    }
+}
+public enum PanelName
+{
     MainMenu,
+    GamePlay,
     ToturialGame,
     GameOver,
     SettingGame,
@@ -15,90 +72,8 @@ public enum TypePanelUI
     QuitGame
 }
 
-public class UIManager : Singleton<UIManager>
+public enum StatePanel
 {
-    [SerializeField] private GameObject _gamePlay;
-    [SerializeField] private GameObject _mainMenu;
-    [SerializeField] private GameObject _gameOver;
-    [SerializeField] private GameObject _pauseGame;
-    [SerializeField] private GameObject _settingGame;
-    [SerializeField] private GameObject _levelUp;
-    [SerializeField] private GameObject _finishGame;
-    [SerializeField] private TypePanelUI _currentUIStage = TypePanelUI.MainMenu;
-
-    private void Start()
-    {
-        SetPanelState(_currentUIStage, null);
-    }
-
-    private void UpdatePanelStage(GameObject oldPanel = null)
-    {
-        switch (_currentUIStage)
-        {
-            case TypePanelUI.GamePlay:
-                _gamePlay.SetActive(true);
-                break;
-
-            case TypePanelUI.MainMenu:
-                _mainMenu.SetActive(true);
-                break;
-
-            case TypePanelUI.SettingGame:
-                _settingGame.SetActive(true);
-                break;
-
-            case TypePanelUI.GameOver:
-                _gameOver.SetActive(true);
-                break;
-
-            case TypePanelUI.PauseGame:
-                _pauseGame.SetActive(true);
-                break;
-
-            case TypePanelUI.LevelUp:
-                _levelUp.SetActive(true);
-                break;
-
-            case TypePanelUI.FinishGame:
-                _finishGame.SetActive(true);
-                break;
-        }
-
-        if (oldPanel == null) return;
-        oldPanel.SetActive(false);
-    }
-
-    public void SetPanelState(TypePanelUI state, GameObject oldPanel = null)
-    {
-        _currentUIStage = state;
-        UpdatePanelStage(oldPanel);
-    }
-
-
-    protected override void SetDefaultValue()
-    {}
-
-    protected override void LoadComponent()
-    {
-        base.LoadComponent();
-        LoadAllPanel();
-    }
-
-    private void LoadAllPanel()
-    {
-        _gamePlay = this.transform.Find("GamePlay").gameObject;
-        _gamePlay.SetActive(true);
-        _mainMenu = this.transform.Find("MainMenu").gameObject;
-        _mainMenu.SetActive(false);
-        _gameOver = this.transform.Find("GameOver").gameObject;
-        _gameOver.SetActive(false);
-        _pauseGame = this.transform.Find("PauseGame").gameObject;
-        _pauseGame.SetActive(false);
-        _settingGame = this.transform.Find("SettingGame").gameObject;
-        _settingGame.SetActive(false);
-        _levelUp = this.transform.Find("LevelUp").gameObject;
-        _levelUp.SetActive(false);
-        _finishGame = this.transform.Find("FinishGame").gameObject;
-        _finishGame.SetActive(false);
-    }
+    Show,
+    Hide
 }

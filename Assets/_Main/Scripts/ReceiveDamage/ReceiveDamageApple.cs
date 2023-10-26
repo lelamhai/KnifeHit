@@ -6,8 +6,8 @@ public class ReceiveDamageApple : BaseReceiveDamage
 {
     protected override void DeadGameObject()
     {
-        SpawnFXApple.Instance.SpawnGameObject("FXApple", transform.position);
-        Destroy(gameObject);
+        //SpawnFXApple.Instance.SpawnGameObject("FXApple", transform.position);
+        //Destroy(gameObject);
     }
 
     protected override void SetDefaultValue()

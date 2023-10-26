@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum TypeKnife
@@ -17,31 +14,33 @@ public class SpawnKnife : SingletonSpawn<SpawnKnife>
     private void OnEnable()
     {
         GameManager.Instance._StartGame += StartGame;
-        GameManager.Instance._SetupLevel += SetupLevel;
-        GameManager.Instance._GameOver += EndGame;
-        GameManager.Instance._NextLevelUp += EndGame;
-        GameManager.Instance._FinishGame += EndGame;
 
-        InputManager.Instance._Shooting += Shooting;
+        //GameManager.Instance._SetupLevel += SetupLevel;
+        //GameManager.Instance._GameOver += EndGame;
+        //GameManager.Instance._NextLevelUp += EndGame;
+        //GameManager.Instance._FinishGame += EndGame;
+
+        //InputManager.Instance._Shooting += Shooting;
     }
 
     private void OnDisable()
     {
         GameManager.Instance._StartGame -= StartGame;
-        GameManager.Instance._SetupLevel -= SetupLevel;
-        GameManager.Instance._GameOver -= EndGame;
-        GameManager.Instance._NextLevelUp -= EndGame;
-        GameManager.Instance._FinishGame -= EndGame;
 
-        InputManager.Instance._Shooting -= Shooting;
+        //GameManager.Instance._SetupLevel -= SetupLevel;
+        //GameManager.Instance._GameOver -= EndGame;
+        //GameManager.Instance._NextLevelUp -= EndGame;
+        //GameManager.Instance._FinishGame -= EndGame;
+
+        //InputManager.Instance._Shooting -= Shooting;
     }
 
-    private void SetupLevel(int count)
-    {
-        StartGame();
-        Clear();
-        Initial(count);
-    }
+    //private void SetupLevel(int count)
+    //{
+    //    StartGame();
+    //    Clear();
+    //    Initial(count);
+    //}
 
 
     private void StartGame()
@@ -49,38 +48,38 @@ public class SpawnKnife : SingletonSpawn<SpawnKnife>
         _isShooting = true;
     }
 
-    private void EndGame()
-    {
-        _isShooting = false;
-    }
+    //private void EndGame()
+    //{
+    //    _isShooting = false;
+    //}
 
-    private void Clear()
-    {
-        _isShooting = true;
-        _baseHolders.ResetGame();
-    }
+    //private void Clear()
+    //{
+    //    _isShooting = true;
+    //    //_baseHolders.ResetGame();
+    //}
 
-    private void Initial(int count)
-    {
-        for (int i = 0; i < count; i++)
-        {
-            Transform knife = SpawnGameObjectReturn(_currentKnife.ToString(), _point.position);
-            knife.gameObject.SetActive(true);
-        }
-    }
+    //private void Initial(int count)
+    //{
+    //    for (int i = 0; i < count; i++)
+    //    {
+    //        //Transform knife = SpawnGameObjectReturn(_currentKnife.ToString(), _point.position);
+    //        //knife.gameObject.SetActive(true);
+    //    }
+    //}
 
-    private void Shooting()
-    {
-        if (!_isShooting) return;
+    //private void Shooting()
+    //{
+    //    if (!_isShooting) return;
 
-        var move = _baseHolders.transform.GetChild(0).GetComponent<MoveKnife>();
-        move.enabled = true;
+    //    var move = _baseHolders.transform.GetChild(0).GetComponent<MoveKnife>();
+    //    move.enabled = true;
 
-        var box = _baseHolders.transform.GetChild(0).GetComponent<BoxCollider2D>();
-        box.enabled = true;
+    //    var box = _baseHolders.transform.GetChild(0).GetComponent<BoxCollider2D>();
+    //    box.enabled = true;
 
-        //UIManger.Instance.Shooting();
-    }
+    //    //UIManger.Instance.Shooting();
+    //}
     protected override void SetDefaultValue()
     {}
 }

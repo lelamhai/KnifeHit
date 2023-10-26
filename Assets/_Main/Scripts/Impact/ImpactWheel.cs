@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ImpactWheel : BaseImpact
@@ -12,10 +10,9 @@ public class ImpactWheel : BaseImpact
         _hitWheel.PlaySoundHit();
     }
 
-    protected override void LoadComponent()
+    protected override void SetDefaultValue()
     {
-        base.LoadComponent();
-
+        base.SetDefaultValue();
         _hitWheel = this.GetComponent<HitWheel>();
     }
 }

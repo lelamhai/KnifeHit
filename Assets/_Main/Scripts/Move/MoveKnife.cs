@@ -18,11 +18,8 @@ public class MoveKnife : BaseMonoBehaviour
         _rigidbody2D.gravityScale = 1;
     }
 
-    protected override void LoadComponent()
+    protected override void SetDefaultValue()
     {
         _rigidbody2D = this.transform.GetComponent<Rigidbody2D>();
     }
-
-    protected override void SetDefaultValue()
-    {}
 }

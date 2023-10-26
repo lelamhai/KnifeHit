@@ -27,15 +27,13 @@ public class ImpactKnife : BaseImpact
     private IEnumerator EndGame()
     {
         yield return new WaitForSeconds(0.5f);
-        GameManager.Instance.SetState(GameStates.GameOver);
+        GameManager.Instance.SetState(GameState.GameOver);
     }
 
-
-    protected override void LoadComponent()
+    protected override void SetDefaultValue()
     {
-        base.LoadComponent();
+        base.SetDefaultValue();
         _rigidbody2D = this.GetComponent<Rigidbody2D>();
         _hitKnife = this.GetComponent<HitKnife>();
-
     }
 }

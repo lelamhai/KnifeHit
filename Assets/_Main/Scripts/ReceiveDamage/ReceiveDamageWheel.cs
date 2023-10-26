@@ -1,31 +1,38 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ReceiveDamageWheel : BaseReceiveDamage
 {
-    [SerializeField] private SettingWheel _settingWheel;
     [SerializeField] private DeadWheel _deadWheel;
 
-    private void Start()
+
+    private void OnEnable()
     {
-        _maxHealth = _settingWheel.GetHealth();
+        GameManager.Instance._SetupLevel += SetupLevel;
         _currentHealth = _maxHealth;
     }
 
+    private void OnDisable()
+    {
+        GameManager.Instance._SetupLevel += SetupLevel;
+    }
+
+    private void SetupLevel(int count)
+    {
+        _maxHealth = count;
+    }
+  
     protected override void DeadGameObject()
     {
         _deadWheel.PlaySoundDead();
-        GameManager.Instance.SetState(GameStates.FinishLevel);
+        GameManager.Instance.SetState(GameState.FinishLevel);
         Destroy(gameObject);
     }
 
     protected override void SetDefaultValue()
-    {}
-
-    protected override void LoadComponent()
     {
         _deadWheel = this.GetComponent<DeadWheel>();
-        _settingWheel = this.GetComponent<SettingWheel>();
     }
 }

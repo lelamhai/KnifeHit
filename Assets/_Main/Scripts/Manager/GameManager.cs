@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum GameStates
+public enum GameState
 {
     None,
     StartGame, 
@@ -17,48 +15,48 @@ public enum GameStates
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private GameStates _currentStage = GameStates.None;
+    [SerializeField] private GameState _currentState = GameState.None;
     public UnityAction _StartGame, _GameOver, _ResetGame, _FinishLevel, _NextLevelUp, _FinishGame;
 
     public UnityAction<int> _SetupLevel;
 
     private void UpdateGameStates()
     {
-        switch (_currentStage)
+        switch (_currentState)
         {
-            case GameStates.StartGame:
+            case GameState.StartGame:
                 _StartGame?.Invoke();
                 break;
 
-            case GameStates.GamePlay:
+            case GameState.GamePlay:
 
                 break;
 
-            case GameStates.GameOver:
+            case GameState.GameOver:
                 _GameOver?.Invoke();
                 break;
 
-            case GameStates.FinishLevel:
+            case GameState.FinishLevel:
                 _FinishLevel?.Invoke();
                 break;
 
-            case GameStates.NextLevelUp:
+            case GameState.NextLevelUp:
                 _NextLevelUp?.Invoke();
                 break;
 
-            case GameStates.FinishGame:
+            case GameState.FinishGame:
                 _FinishGame?.Invoke();
                 break;
 
-            case GameStates.ResetGame:
+            case GameState.ResetGame:
                 _ResetGame?.Invoke();
                 break;
         }
     }
 
-    public void SetState(GameStates state)
+    public void SetState(GameState state)
     {
-        _currentStage = state;
+        _currentState = state;
         UpdateGameStates();
     }
 

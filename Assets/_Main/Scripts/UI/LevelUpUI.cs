@@ -26,14 +26,11 @@ public class LevelUpUI : BaseMonoBehaviour
 
     public void NextLevel()
     {
-        GameManager.Instance.SetState(GameStates.ResetGame);
-        UIManager.Instance.SetPanelState(TypePanelUI.GamePlay, this.gameObject);
+        GameManager.Instance.SetState(GameState.ResetGame);
+        //UIManager.Instance.SetPanelState(PanelName.GamePlay, this.gameObject);
     }
 
     protected override void SetDefaultValue()
-    {}
-
-    protected override void LoadComponent()
     {
         _textLevel = this.transform.Find("Level").GetComponent<TMP_Text>();
     }

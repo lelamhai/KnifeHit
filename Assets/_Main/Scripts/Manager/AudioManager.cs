@@ -40,9 +40,6 @@ public class AudioManager : Singleton<AudioManager>
     }
 
     protected override void SetDefaultValue()
-    {}
-
-    protected override void LoadComponent()
     {
         Transform bg = this.transform.Find("BGAudio");
         _bgSource = bg.GetComponent<AudioSource>();
