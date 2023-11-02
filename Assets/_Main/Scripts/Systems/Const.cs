@@ -12,6 +12,7 @@ public class Const
     public class Spawn
     {
         public readonly static string HOLDERS = "Holders";
+        public readonly static string POINT = "Point";
     }
 
     public class Prefix

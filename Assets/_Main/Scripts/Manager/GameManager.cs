@@ -1,23 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum GameState
-{
-    None,
-    StartGame, 
-    GamePlay,
-    ResetGame,
-    FinishLevel,
-    NextLevelUp,
-    FinishGame,
-    GameOver
-}
-
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private GameState _currentState = GameState.None;
-    public UnityAction _StartGame, _GameOver, _ResetGame, _FinishLevel, _NextLevelUp, _FinishGame;
 
+    public UnityAction _StartGame, _GameOver, _ResetGame, _FinishLevel, _NextLevelUp, _FinishGame;
     public UnityAction<int> _SetupLevel;
 
     private void UpdateGameStates()
@@ -67,4 +55,16 @@ public class GameManager : Singleton<GameManager>
 
     protected override void SetDefaultValue()
     {}
+}
+
+public enum GameState
+{
+    None,
+    StartGame,
+    GamePlay,
+    ResetGame,
+    FinishLevel,
+    NextLevelUp,
+    FinishGame,
+    GameOver
 }

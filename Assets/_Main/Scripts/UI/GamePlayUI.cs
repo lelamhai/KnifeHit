@@ -62,9 +62,4 @@ public class GamePlayUI : MonoBehaviour
             _listImageKnife.Clear();
         }
     }
-
-    public void Shooting()
-    {
-        InputManager.Instance.Shooting();
-    }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SettingWheel : BaseMonoBehaviour
 {
-    [SerializeField] private int _countKnife = 3;
+    //[SerializeField] private int _countKnife = 3;
 
     [SerializeField] private List<RotationElement> _listRotationElement = new List<RotationElement>();
     [SerializeField] private int _currentRotationElement = 0;
@@ -13,10 +13,10 @@ public class SettingWheel : BaseMonoBehaviour
     private float _speed = 0;
     private float _duration = 0;
 
-    private void Awake()
-    {
-        GameManager.Instance.SetupLevel(_countKnife);
-    }
+    //private void Start()
+    //{
+    //    GameManager.Instance.SetupLevel(_countKnife);
+    //}
 
     private void FixedUpdate()
     {
@@ -36,15 +36,8 @@ public class SettingWheel : BaseMonoBehaviour
         _delay = true;
     }
 
-    public int GetHealth()
-    {
-        return _countKnife;
-    }
-
     protected override void SetDefaultValue()
-    {
-        _countKnife = 4;
-    }
+    {}
 }
 
 [System.Serializable]

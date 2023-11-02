@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 4894359113509732031}
   - component: {fileID: 9204854605124375749}
   - component: {fileID: 5422943233537066078}
+  - component: {fileID: 6885512028651223479}
   - component: {fileID: 5253528038601253011}
   - component: {fileID: 6301436422058710434}
   - component: {fileID: 2004225896538266746}
   - component: {fileID: -3471709929468559261}
   - component: {fileID: 7599556701465309818}
-  - component: {fileID: -2934747893495999980}
   m_Layer: 0
   m_Name: Knife_01
   m_TagString: Untagged
@@ -33,8 +33,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826755259612666886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -151,19 +151,32 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.3451202}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.58, y: 2.43}
+    oldSize: {x: 0.19333333, y: 0.81}
     newSize: {x: 0.58, y: 2.43}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.57, y: 1.8597598}
+  m_Size: {x: 0.19333333, y: 0.81}
   m_EdgeRadius: 0
+--- !u!114 &6885512028651223479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826755259612666886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ec254331a4772b499225af93b1b2f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 0
 --- !u!114 &5253528038601253011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,16 +246,3 @@ MonoBehaviour:
   _baseDamage: {fileID: 6301436422058710434}
   _rigidbody2D: {fileID: 9204854605124375749}
   _hitKnife: {fileID: -3471709929468559261}
---- !u!114 &-2934747893495999980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826755259612666886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd8fadf7990c5154598e0ee49d295bed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attribute: {fileID: 11400000, guid: 567472c37fb8c564fac311f2f812df47, type: 2}

@@ -54,7 +54,7 @@ public class LevelManager : Singleton<LevelManager>
             Destroy(_currentLevelGameObject.gameObject);
         }
 
-        if(_listAllLevel.Count <= 0)
+        if (_listAllLevel.Count <= 0)
         {
             Debug.LogError("List level empty");
             return;
