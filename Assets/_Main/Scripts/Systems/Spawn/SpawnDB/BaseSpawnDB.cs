@@ -8,7 +8,7 @@ public abstract class BaseSpawnDB : BaseMonoBehaviour
     [SerializeField] protected Transform _point = null;
     [SerializeField] protected string _pathFolder = "Folder Database asset" + Const.Prefix.ASSETS;
 
-    public void Spawn(int id)
+    protected void Spawn(int id)
     {
         Transform gameObject = _baseHolders.Get(id);
         if (gameObject == null)
@@ -25,7 +25,7 @@ public abstract class BaseSpawnDB : BaseMonoBehaviour
         }
     }
 
-    public void Spawn(int id, Vector3 point)
+    protected void Spawn(int id, Vector3 point)
     {
         Transform gameObject = _baseHolders.Get(id);
         if (gameObject == null)
@@ -42,7 +42,7 @@ public abstract class BaseSpawnDB : BaseMonoBehaviour
         }
     }
 
-    public Transform FindDatabaseById(int id)
+    protected Transform FindDatabaseById(int id)
     {
         if (_database._ListItemData.ContainsKey(id))
         {
@@ -51,7 +51,7 @@ public abstract class BaseSpawnDB : BaseMonoBehaviour
         return null;
     }
 
-    public void Release(int key, Transform value)
+    protected void Release(int key, Transform value)
     {
         _baseHolders.Release(key, value);
     }

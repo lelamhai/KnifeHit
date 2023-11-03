@@ -56,8 +56,13 @@ public class SpawnKnife : SingletonSpawnBD<SpawnKnife>
     {
         for (int i = 0; i < count; i++)
         {
-            Spawn(1);
+            SpawnGameObject(TypeKnife.Knife_01);
         }
+    }
+
+    public void SpawnGameObject(TypeKnife typeKnife)
+    {
+        Spawn((int)typeKnife);
     }
 
     private void Shooting()
@@ -72,4 +77,11 @@ public class SpawnKnife : SingletonSpawnBD<SpawnKnife>
 
         //UIManger.Instance.Shooting();
     }
+}
+
+public enum TypeKnife
+{
+    None = 0,
+    Knife_01 = 1,
+    Knife_02 = 2
 }
