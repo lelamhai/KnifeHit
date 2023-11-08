@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66177c26313b7c49bef58fc6179730d, type: 3}
+  m_Name: ItemKnife08
+  m_EditorClassIdentifier: 
+  Model:
+    Id: 7
+    Name: Knife 08
+    Avatar: {fileID: 21300000, guid: 59fb0ebd59962e84ab7f508ebcf52b74, type: 3}
+    Description: This is Knife 08
+    Price: 200
+    Unlock: 0
+    Use: 0
+    Prefab: {fileID: 5838438807337179678, guid: 543ae3be1f39512468093173b3ef5e68, type: 3}

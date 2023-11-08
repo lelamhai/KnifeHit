@@ -63,6 +63,7 @@ public enum PanelName
 {
     MainMenu,
     GamePlay,
+    Shop,
     ToturialGame,
     GameOver,
     SettingGame,

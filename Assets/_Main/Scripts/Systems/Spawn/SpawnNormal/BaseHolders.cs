@@ -19,6 +19,11 @@ public abstract class BaseHolders : BaseMonoBehaviour
         return null;
     }
 
+    public Transform GetItemByIndex(int id)
+    {
+        return transform.GetChild(id);
+    }
+
     public void Release(Transform value)
     {
         _poolObject.Enqueue(value);

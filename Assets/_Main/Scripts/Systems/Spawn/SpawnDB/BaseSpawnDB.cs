@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class BaseSpawnDB : BaseMonoBehaviour
 {
     [Header("Base Spawn")]
-    [SerializeField] protected BaseListItemData _database;
+    [SerializeField] protected BaseDatabase _database;
     [SerializeField] protected BaseHoldersDB _baseHolders = null;
     [SerializeField] protected Transform _point = null;
     [SerializeField] protected string _pathFolder = "Folder Database asset" + Const.Prefix.ASSETS;
@@ -44,10 +44,10 @@ public abstract class BaseSpawnDB : BaseMonoBehaviour
 
     protected Transform FindDatabaseById(int id)
     {
-        if (_database._ListItemData.ContainsKey(id))
-        {
-            return _database._ListItemData[id]._itemInfo.prefab;
-        }
+        //if (_database._ListItemData.ContainsKey(id))
+        //{
+        //    return _database._ListItemData[id]._itemInfo.prefab;
+        //}
         return null;
     }
 

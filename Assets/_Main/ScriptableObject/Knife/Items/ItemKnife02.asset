@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66177c26313b7c49bef58fc6179730d, type: 3}
   m_Name: ItemKnife02
   m_EditorClassIdentifier: 
-  _itemInfo:
-    id: 1
-    name: Knife 02
-    avatar: {fileID: 21300000, guid: b26520c60ad295e4284f740ffd58a5db, type: 3}
-    description: This is Knife 02
-    price: 0
-    prefab: {fileID: 5838438807337179678, guid: 5f6b70c6c99f2c24cb3c584c9df6740d, type: 3}
+  Model:
+    Id: 1
+    Name: Knife 02
+    Avatar: {fileID: 21300000, guid: b26520c60ad295e4284f740ffd58a5db, type: 3}
+    Description: This is Knife 02
+    Price: 100
+    Unlock: 0
+    Prefab: {fileID: 5838438807337179678, guid: 5f6b70c6c99f2c24cb3c584c9df6740d, type: 3}

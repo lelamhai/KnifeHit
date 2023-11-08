@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf4b2458d86f5048ae6bc481cb49f51, type: 3}
+  m_Name: KnifesDatabase
+  m_EditorClassIdentifier: 
+  _pathFolder: Knife/Items/
+  _Database:
+    list:
+    - Key: 0
+      Value: {fileID: 11400000, guid: 567472c37fb8c564fac311f2f812df47, type: 2}
+    - Key: 1
+      Value: {fileID: 11400000, guid: 389691ecd19ecb042ac145c63d796518, type: 2}
+    - Key: 2
+      Value: {fileID: 11400000, guid: c18483eb623524244888b22096af93b0, type: 2}
+    - Key: 3
+      Value: {fileID: 11400000, guid: 74d6168055f25824eae1bc79bfc1c725, type: 2}
+    - Key: 4
+      Value: {fileID: 11400000, guid: 8ca199b1fb80bf645bf36a3b1a5638f8, type: 2}
+    - Key: 5
+      Value: {fileID: 11400000, guid: fcd48a2a1b294e3479eb2e683c5b5118, type: 2}
+    - Key: 6
+      Value: {fileID: 11400000, guid: 0f5a8f0dbfbbe5143b0a2a060ea7e153, type: 2}
+    - Key: 7
+      Value: {fileID: 11400000, guid: e03605751b1771c4eb9e02f4b6e3490b, type: 2}
+    - Key: 8
+      Value: {fileID: 11400000, guid: 6b87c78d3a32be344bf57f0fbf71fcbd, type: 2}
+    - Key: 9
+      Value: {fileID: 11400000, guid: 7c533f37f76b49846a3aa283c73e9d9d, type: 2}
+    - Key: 10
+      Value: {fileID: 11400000, guid: 3cc52f9596751364ebc56db45ae10d74, type: 2}
+    - Key: 11
+      Value: {fileID: 11400000, guid: a5e2423b06d4dd74d9c4b2581de49be4, type: 2}
+    - Key: 12
+      Value: {fileID: 11400000, guid: 4a906cd06d17a6341964d479bb43aaa0, type: 2}
+    - Key: 13
+      Value: {fileID: 11400000, guid: 1883debf5896c6c418dad89a1954afa6, type: 2}
+    - Key: 14
+      Value: {fileID: 11400000, guid: a9c2078d76ba9c74e910f5e4437e4753, type: 2}
+    - Key: 15
+      Value: {fileID: 11400000, guid: 95f51fdaf77754e418f82b3994b2c935, type: 2}
+    - Key: 16
+      Value: {fileID: 11400000, guid: bc77f5a4d0a3efc4b91eecdca5875443, type: 2}
+    - Key: 17
+      Value: {fileID: 11400000, guid: e18c0222431d1a74e9ce62ad77399245, type: 2}
+    - Key: 18
+      Value: {fileID: 11400000, guid: 55a29f0747a519f4ab88cd21b3d7e7bb, type: 2}
+    - Key: 19
+      Value: {fileID: 11400000, guid: 9486296cca1cedb41b8e4f78c18a8e65, type: 2}
+    keyCollision: 0

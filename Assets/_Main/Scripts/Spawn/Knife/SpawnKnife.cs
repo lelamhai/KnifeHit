@@ -1,14 +1,26 @@
 using UnityEngine;
-public class SpawnKnife : SingletonSpawnBD<SpawnKnife>
+public class SpawnKnife : SingletonSpawnBD<SpawnKnife>, IDataPersistence
 {
+    [SerializeField] private KnifesDatabase _knifesDatabase;
     [SerializeField] private bool _canShooting = false;
+
+    private GenericDictionary<int, KnifeModel> _saveKnife = new GenericDictionary<int, KnifeModel>();
+
+
     //[SerializeField] private TypeKnife _currentKnife = TypeKnife.Knife0;
+
+    private void Start()
+    {
+        RegisterData();
+
+    }
 
     private void OnEnable()
     {
+
         GameManager.Instance._StartGame += StartGame;
         GameManager.Instance._SetupLevel += SetupLevel;
-        InputManager.Instance._Shooting += Shooting;
+        //InputManager.Instance._Shooting += Shooting;
 
 
         //GameManager.Instance._GameOver += EndGame;
@@ -20,7 +32,7 @@ public class SpawnKnife : SingletonSpawnBD<SpawnKnife>
     {
         GameManager.Instance._StartGame -= StartGame;
         GameManager.Instance._SetupLevel -= SetupLevel;
-        InputManager.Instance._Shooting -= Shooting;
+        //InputManager.Instance._Shooting -= Shooting;
 
 
         //GameManager.Instance._GameOver -= EndGame;
@@ -76,6 +88,29 @@ public class SpawnKnife : SingletonSpawnBD<SpawnKnife>
         box.enabled = true;
 
         //UIManger.Instance.Shooting();
+    }
+
+    public void LoadData(GameData data)
+    {
+        for (int i = 0; i < _knifesDatabase._Database.Count; i++)
+        {
+            _knifesDatabase._Database[i].Model.Name = data.Knife[i].Name;
+        }
+    }
+
+    public void SaveData(GameData data)
+    {
+        foreach (var item in _knifesDatabase._Database)
+        {
+            _saveKnife.Add(item.Key, item.Value.Model);
+        }
+
+        data.Knife = _saveKnife;
+    }
+
+    public void RegisterData()
+    {
+        DataPersistanceManager.Instance.RegisterEventDataPersistance(this);
     }
 }
 
