@@ -1,31 +1,48 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PriceManager : Singleton<PriceManager>
+public class PriceManager : Singleton<PriceManager>, IDataPersistence
 {
-    [SerializeField] private int _price = 0;
+    [SerializeField] private PriceDatabase _priceData;
 
-    public UnityAction<int> _UpdatePriceUI;
-    public int _Price
+    public UnityAction<double> _UpdatePriceUI;
+
+    private void Start()
     {
-        get => _price;
+        RegisterData();
+
     }
 
     public bool BuyItem(int price)
     {
-        if (_price < 0) return false;
-        if (_price < price) return false;
+        if (_priceData._Price < 0) return false;
+        if (_priceData._Price < price) return false;
 
-        _price -= price;
+        _priceData._Price -= price;
         UpdatePriceUI();
         return true;
     }
 
     public void UpdatePriceUI()
     {
-        _UpdatePriceUI?.Invoke(_price);
+        _UpdatePriceUI?.Invoke(_priceData._Price);
     }
 
     protected override void SetDefaultValue()
     {}
+
+    public void LoadData(GameData data)
+    {
+        _priceData._Price = data.Price;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.Price = _priceData._Price;
+    }
+
+    public void RegisterData()
+    {
+        DataPersistanceManager.Instance.RegisterEventDataPersistance(this);
+    }
 }

@@ -9,7 +9,7 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private Transform parent;
 
     [Header("All level in Game")]
-    [SerializeField] private int _level = 0;
+    [SerializeField] private LevelDatabase _levelData;
     [SerializeField] private List<Transform> _listAllLevel = new List<Transform>();
 
     private Transform _currentLevelGameObject = null;
@@ -30,13 +30,13 @@ public class LevelManager : Singleton<LevelManager>
 
     public int GetLevel()
     {
-        return _level;
+        return _levelData._Level;
     }
 
     private void LevelUp()
     {
-        _level++;
-        if (_level <= _listAllLevel.Count-1)
+        _levelData._Level++;
+        if (_levelData._Level <= _listAllLevel.Count-1)
         {
             GameManager.Instance.SetState(GameState.NextLevelUp);
             //UIManager.Instance.SetPanelState(PanelName.LevelUp);
@@ -60,7 +60,7 @@ public class LevelManager : Singleton<LevelManager>
             return;
         }
 
-        _currentLevelGameObject = Instantiate(_listAllLevel[_level], parent);
+        _currentLevelGameObject = Instantiate(_listAllLevel[_levelData._Level], parent);
         _currentLevelGameObject.transform.SetParent(parent);
     }
 

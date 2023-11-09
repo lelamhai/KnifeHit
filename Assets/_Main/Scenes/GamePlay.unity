@@ -4487,7 +4487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f033d82ad68775439f7837892ce18e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 10000
+  _priceData: {fileID: 11400000, guid: 0554b586db66e614cbb96b3f24f41c42, type: 2}
 --- !u!1 &1220686094
 GameObject:
   m_ObjectHideFlags: 0
@@ -5686,6 +5686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 1363626804}
   _level: 0
+  _levelData: {fileID: 11400000, guid: c81f108069d38a24d9a60640a156eb63, type: 2}
   _listAllLevel:
   - {fileID: 291133625526141458, guid: d0aae6845a13ec4429970ebb5d5b3936, type: 3}
 --- !u!1 &1587660328

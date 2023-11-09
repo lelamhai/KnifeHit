@@ -17,7 +17,7 @@ public class PriceUI : BaseMonoBehaviour
         PriceManager.Instance._UpdatePriceUI -= UpdatePriceUI;
     }
 
-    private void UpdatePriceUI(int price)
+    private void UpdatePriceUI(double price)
     {
         _text.text = price.ToString();
     }

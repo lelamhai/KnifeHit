@@ -17,6 +17,10 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
         this._dataHandler = new FileDataHandler(Application.persistentDataPath, _fileName, _useEncryption);
         LoadGame();
     }
+    private void OnDestroy()
+    {
+        SaveData();
+    }
 
     private void NewGame()
     {
@@ -75,6 +79,8 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
     public void RegisterEventDataPersistance(IDataPersistence dataPersistence)
     {
         _dataPersistenceObjects.Add(dataPersistence);
+
+        Debug.Log(_dataPersistenceObjects[0].ToString());
     }
 
     protected override void SetDefaultValue()
