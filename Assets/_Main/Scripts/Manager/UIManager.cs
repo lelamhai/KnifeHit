@@ -6,6 +6,10 @@ public class UIManager : Singleton<UIManager>
 {
     [SerializeField] private List<GameObject> _listPanel = new List<GameObject>();
     [SerializeField] private PanelName _currentPanelName = PanelName.MainMenu;
+    public PanelName CurrentPanelName
+    {
+        get => _currentPanelName;
+    }
 
     private void Awake()
     {
@@ -64,13 +68,8 @@ public enum PanelName
     MainMenu,
     GamePlay,
     Shop,
-    ToturialGame,
     GameOver,
-    SettingGame,
-    PauseGame,
-    LevelUp,
-    FinishGame,
-    QuitGame
+    FinishLevel
 }
 
 public enum StatePanel

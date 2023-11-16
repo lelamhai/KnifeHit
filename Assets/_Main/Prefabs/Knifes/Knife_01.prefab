@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4894359113509732031}
   - component: {fileID: 9204854605124375749}
   - component: {fileID: 5422943233537066078}
-  - component: {fileID: 6885512028651223479}
+  - component: {fileID: -8695113332264967402}
   - component: {fileID: 5253528038601253011}
   - component: {fileID: 6301436422058710434}
   - component: {fileID: 2004225896538266746}
@@ -38,7 +38,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4894359113509732031
 SpriteRenderer:
@@ -164,7 +164,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19333333, y: 0.81}
   m_EdgeRadius: 0
---- !u!114 &6885512028651223479
+--- !u!114 &-8695113332264967402
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,10 +173,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1826755259612666886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ec254331a4772b499225af93b1b2f6f, type: 3}
+  m_Script: {fileID: 11500000, guid: a5443cfc92cac494aae1303993657c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 0
+  _rigidbody2D: {fileID: 9204854605124375749}
 --- !u!114 &5253528038601253011
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a64ec8b6d2dbc3438999a872ae0298e, type: 3}
   m_Name: ItemEffectApple
   m_EditorClassIdentifier: 
-  _itemInfo:
-    id: 0
-    name: Effect Apple
-    avatar: {fileID: 21300000, guid: 06558917c5b61fd40ba68106a47a8e4b, type: 3}
-    description: 
-    price: 0
-    prefab: {fileID: 6305875083099678223, guid: 3acf3f7557b7fe9439cf8226e9ed2723, type: 3}
+  Model:
+    Id: 0
+    Name: Apple
+    Prefab: {fileID: 6305875083099678223, guid: 3acf3f7557b7fe9439cf8226e9ed2723, type: 3}

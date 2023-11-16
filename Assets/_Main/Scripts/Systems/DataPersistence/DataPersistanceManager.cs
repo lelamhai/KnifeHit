@@ -79,8 +79,6 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
     public void RegisterEventDataPersistance(IDataPersistence dataPersistence)
     {
         _dataPersistenceObjects.Add(dataPersistence);
-
-        Debug.Log(_dataPersistenceObjects[0].ToString());
     }
 
     protected override void SetDefaultValue()

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1460e36ba5a0d74ea7065017535b094, type: 3}
+  m_Name: New Trunk Database
+  m_EditorClassIdentifier: 
+  Database:
+    list:
+    - Key: 0
+      Value: {fileID: 11400000, guid: 8fa8d83a3208b89409fdcaf501fc7a44, type: 2}
+    - Key: 1
+      Value: {fileID: 11400000, guid: 5a4c584154c8a854aac6a229cb5bc1f5, type: 2}
+    - Key: 2
+      Value: {fileID: 11400000, guid: 251a98f08c5cc2b499b6f6a49b5e242b, type: 2}
+    keyCollision: 0

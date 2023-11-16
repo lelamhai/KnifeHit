@@ -1,4 +1,4 @@
-public class HoldersShop : BaseHolders
+public class HoldersShop : BaseMonoBehaviour
 {
     public void BuyItem(int id)
     {

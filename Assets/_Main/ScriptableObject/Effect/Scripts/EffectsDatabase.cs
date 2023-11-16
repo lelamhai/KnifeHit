@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectsDatabase", menuName = "Knife/Database/Effect/EffectsDatabase")]
 public class EffectsDatabase : BaseDatabase
 {
-    public GenericDictionary<int, ItemEffectDatabase> _Database = new GenericDictionary<int, ItemEffectDatabase>();
+    public GenericDictionary<int, ItemEffectDatabase> Database = new GenericDictionary<int, ItemEffectDatabase>();
     protected override void LoadScriptableObject()
     {
 #if UNITY_EDITOR
@@ -23,7 +23,7 @@ public class EffectsDatabase : BaseDatabase
                 return;
             }
             gameObject.Model.Id = i;
-            _Database.Add(i, gameObject);
+            Database.Add(i, gameObject);
         }
 #endif
     }

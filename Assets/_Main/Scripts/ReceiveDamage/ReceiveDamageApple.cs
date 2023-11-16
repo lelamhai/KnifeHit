@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class ReceiveDamageApple : BaseReceiveDamage
 {
     protected override void DeadGameObject()
     {
-        //SpawnFXApple.Instance.SpawnGameObject("FXApple", transform.position);
-        //Destroy(gameObject);
+        SpawnEffect.Instance.SpawnTypeEffect(TypeEffect.Apple);
+        PriceManager.Instance.AddPrice(1);
+        Destroy(this.transform.gameObject);
     }
 
     protected override void SetDefaultValue()

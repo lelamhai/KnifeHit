@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -5,41 +6,44 @@ public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private GameState _currentState = GameState.None;
 
-    public UnityAction _StartGame, _GameOver, _ResetGame, _FinishLevel, _NextLevelUp, _FinishGame;
+    public UnityAction _Initialize, _GameOver, _FinishLevel, _ChangeKnife;
     public UnityAction<int> _SetupLevel;
+
 
     private void UpdateGameStates()
     {
         switch (_currentState)
         {
-            case GameState.StartGame:
-                _StartGame?.Invoke();
-                break;
-
-            case GameState.GamePlay:
-
-                break;
-
-            case GameState.GameOver:
-                _GameOver?.Invoke();
+            case GameState.Initialize:
+                _Initialize?.Invoke();
                 break;
 
             case GameState.FinishLevel:
                 _FinishLevel?.Invoke();
                 break;
 
-            case GameState.NextLevelUp:
-                _NextLevelUp?.Invoke();
+            case GameState.GameOver:
+                _GameOver?.Invoke();
+
+                StartCoroutine(IE_GameOver());
                 break;
 
-            case GameState.FinishGame:
-                _FinishGame?.Invoke();
+            case GameState.ChangeKnife:
+                _ChangeKnife?.Invoke();
                 break;
 
-            case GameState.ResetGame:
-                _ResetGame?.Invoke();
-                break;
         }
+    }
+
+    private IEnumerator IE_GameOver()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SpawnKnife.Instance.BackHolder();
+
+        yield return new WaitForSeconds(0.2f);
+        SpawnTrunk.Instance.RemoveTrunk();
+        UIManager.Instance.SetPanelState(PanelName.GamePlay, StatePanel.Hide);
+        UIManager.Instance.SetPanelState(PanelName.GameOver, StatePanel.Show);
     }
 
     public void SetState(GameState state)
@@ -60,11 +64,13 @@ public class GameManager : Singleton<GameManager>
 public enum GameState
 {
     None,
-    StartGame,
-    GamePlay,
-    ResetGame,
+    Initialize,
+    SetupLevel,
     FinishLevel,
-    NextLevelUp,
-    FinishGame,
-    GameOver
+    GameOver,
+
+    ChangeKnife
+
+    //FinishLevel,
+    //LevelUp
 }

@@ -1,9 +1,12 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnShop : BaseSpawn
+public class SpawnShop : BaseMonoBehaviour
 {
+    [SerializeField] private Transform _prefab;
+    [SerializeField] private Transform _holders;
+    [SerializeField] private GenericDictionary<int, Transform> _holdersObject = new GenericDictionary<int, Transform>();
+
     private void OnEnable()
     {
         ShopUI.Instance._LoadDatabase += LoadItemInShop;
@@ -22,49 +25,63 @@ public class SpawnShop : BaseSpawn
 
     private void ItemUse(int oldId, int newId)
     {
-        Transform oldItem = _baseHolders.GetItemByIndex(oldId);
-        if (oldItem == null) return;
-        ItemKnifeUI oldItemUI = oldItem.GetComponent<ItemKnifeUI>();
-        oldItemUI.SetUse(false);
-        oldItemUI._ItemData.Model.Use = false;
+        if (_holdersObject.ContainsKey(oldId))
+        {
+            Transform oldItem = _holdersObject[oldId];
+            ItemKnifeUI oldItemUI = oldItem.GetComponent<ItemKnifeUI>();
+            oldItemUI.SetUse(false);
+            oldItemUI._ItemData.Model.Use = false;
+        }
 
-        Transform newItem = _baseHolders.GetItemByIndex(newId);
-        if (newItem == null) return;
-        ItemKnifeUI newItemUI = newItem.GetComponent<ItemKnifeUI>();
-        newItemUI.SetUse(true);
-        newItemUI._ItemData.Model.Use = true;
+        if (_holdersObject.ContainsKey(newId))
+        {
+            Transform newItem = _holdersObject[newId];
+            ItemKnifeUI newItemUI = newItem.GetComponent<ItemKnifeUI>();
+            newItemUI.SetUse(true);
+            newItemUI._ItemData.Model.Use = true;
+        }
     }
 
     private void ItemPicked(int oldId, int newId)
     {
-        Transform oldItem = _baseHolders.GetItemByIndex(oldId);
-        if (oldItem == null) return;
-        ItemKnifeUI oldItemUI = oldItem.GetComponent<ItemKnifeUI>();
-        oldItemUI.SetFrame(false);
+        if(_holdersObject.ContainsKey(oldId))
+        {
+            Transform oldItem = _holdersObject[oldId];
+            ItemKnifeUI oldItemUI = oldItem.GetComponent<ItemKnifeUI>();
+            oldItemUI.SetFrame(false);
+        }
 
-        Transform newItem = _baseHolders.GetItemByIndex(newId);
-        if (newItem == null) return;
-        ItemKnifeUI newItemUI = newItem.GetComponent<ItemKnifeUI>();
-        newItemUI.SetFrame(true);
+        if(_holdersObject.ContainsKey(newId))
+        {
+            Transform newItem = _holdersObject[newId];
+            ItemKnifeUI newItemUI = newItem.GetComponent<ItemKnifeUI>();
+            newItemUI.SetFrame(true);
+        }
     }
 
     private void SuccessBuy(int id)
     {
-        Transform item = _baseHolders.GetItemByIndex(id);
-        if (item == null) return;
+        if (_holdersObject.ContainsKey(id))
+        {
+            Transform item = _holdersObject[id];
+            if (item == null) return;
 
-        ItemKnifeUI itemUI = item.GetComponent<ItemKnifeUI>();
-        itemUI.SetWrapApple(true);
-        itemUI._ItemData.Model.Unlock = true;
+            ItemKnifeUI itemUI = item.GetComponent<ItemKnifeUI>();
+            itemUI.SetWrapApple(true);
+            itemUI._ItemData.Model.Unlock = true;
+        }
     }
 
     private void LoadItemInShop(KnifesDatabase data)
     {
-        foreach (KeyValuePair<int, ItemKnifeDatabase> item in data._Database)
+        foreach (KeyValuePair<int, ItemKnifeDatabase> item in data.Database)
         {
             var clone = Instantiate(_prefab);
-            clone.SetParent(_baseHolders.transform);
+            _holdersObject.Add(item.Key, clone);
+            clone.SetParent(_holders);
+            clone.localScale = Vector3.one;
             var knifeUI = clone.GetComponent<ItemKnifeUI>();
+            if (knifeUI == null) return;
 
             knifeUI.LoadData(item.Value);
             knifeUI.UpdateInfo(item.Value.Model);
@@ -76,4 +93,7 @@ public class SpawnShop : BaseSpawn
             }
         }
     }
+
+    protected override void SetDefaultValue()
+    {}
 }

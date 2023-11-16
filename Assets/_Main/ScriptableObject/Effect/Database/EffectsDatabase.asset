@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00946c3c1ce2fa04682535237da3b8e9, type: 3}
   m_Name: EffectsDatabase
   m_EditorClassIdentifier: 
-  _pathFolder: Effect/Items/
-  _Database:
+  Database:
     list:
     - Key: 0
       Value: {fileID: 11400000, guid: e8c2735526765254aa2407d4622e2d23, type: 2}
     - Key: 1
+      Value: {fileID: 11400000, guid: cb7865f0344993f4ca45aa347ec08060, type: 2}
+    - Key: 2
       Value: {fileID: 11400000, guid: 6c62545cd9cf62c468c90f38292df7aa, type: 2}
     keyCollision: 0

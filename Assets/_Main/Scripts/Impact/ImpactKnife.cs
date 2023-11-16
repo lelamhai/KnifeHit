@@ -9,26 +9,26 @@ public class ImpactKnife : BaseImpact
 
     protected override void HitGameObject(Collision2D collision)
     {
+        _rigidbody2D.isKinematic = true;
         if (collision.gameObject.name == this.gameObject.name)
         {
             _hitKnife.PlaySoundHit();
             _rigidbody2D.isKinematic = true;
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, -2);
 
-            StartCoroutine(EndGame());
+            GameManager.Instance.SetState(GameState.GameOver);
             return;
-        }
+        } 
 
         _rigidbody2D.velocity = Vector2.zero;
-        _rigidbody2D.isKinematic = true;
-        Destroy(this.GetComponent<ImpactKnife>());
+        //_rigidbody2D.isKinematic = true;
+
+        ImpactKnife knife = transform.GetComponent<ImpactKnife>();
+        knife.enabled = false;
+
     }
 
-    private IEnumerator EndGame()
-    {
-        yield return new WaitForSeconds(0.5f);
-        GameManager.Instance.SetState(GameState.GameOver);
-    }
+  
 
     protected override void SetDefaultValue()
     {

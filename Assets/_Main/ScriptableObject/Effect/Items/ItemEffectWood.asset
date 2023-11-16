@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a64ec8b6d2dbc3438999a872ae0298e, type: 3}
   m_Name: ItemEffectWood
   m_EditorClassIdentifier: 
-  _itemInfo:
-    id: 0
-    name: Piece Wood
-    avatar: {fileID: 21300000, guid: 3e3c278ca2d931e42a98190c344aa4fc, type: 3}
-    description: 
-    price: 0
-    prefab: {fileID: 5253741788163496865, guid: ef36f49bde95e784faaeaac289d99fd6, type: 3}
+  Model:
+    Id: 2
+    Name: Piece wood
+    Prefab: {fileID: 5253741788163496865, guid: ef36f49bde95e784faaeaac289d99fd6, type: 3}

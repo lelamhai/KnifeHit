@@ -5,5 +5,4 @@ public interface  IDataPersistence
     void SaveData(GameData data);
 
     void RegisterData();
-
 }

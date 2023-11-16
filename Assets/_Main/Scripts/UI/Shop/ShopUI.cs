@@ -31,9 +31,9 @@ public class ShopUI : Singleton<ShopUI>
 
     public void LoadItemUse(int id)
     {
-        if (_database._Database.ContainsKey(id))
+        if (_database.Database.ContainsKey(id))
         {
-            _imagePickedKnife.sprite = _database._Database[id].Model.Avatar;
+            _imagePickedKnife.sprite = _database.Database[id].Model.Avatar;
             _currentUse = id;
             _currentPicked = id;
         }
@@ -41,10 +41,10 @@ public class ShopUI : Singleton<ShopUI>
 
     public void PickedItem(int id)
     {
-        if (_database._Database.ContainsKey(id))
+        if (_database.Database.ContainsKey(id))
         {
-            _imagePickedKnife.sprite = _database._Database[id].Model.Avatar;
-            _ItemUnlock?.Invoke(_database._Database[id].Model.Unlock);
+            _imagePickedKnife.sprite = _database.Database[id].Model.Avatar;
+            _ItemUnlock?.Invoke(_database.Database[id].Model.Unlock);
             _ItemPicked?.Invoke(_currentPicked, id);
 
             _currentPicked = id;
@@ -53,23 +53,24 @@ public class ShopUI : Singleton<ShopUI>
 
     public void BuyItem()
     {
-        if (_database._Database.ContainsKey(_currentPicked))
+        if (_database.Database.ContainsKey(_currentPicked))
         {
-            bool result = PriceManager.Instance.BuyItem(_database._Database[_currentPicked].Model.Price);
-            if(result)
+            bool result = PriceManager.Instance.BuyItem(_database.Database[_currentPicked].Model.Price);
+            if (result)
             {
                 _SuccessBuy?.Invoke(_currentPicked);
-                _ItemUnlock?.Invoke(_database._Database[_currentPicked].Model.Unlock);
+                _ItemUnlock?.Invoke(_database.Database[_currentPicked].Model.Unlock);
             }
         }
     }
 
     public void UseItem()
     {
-        if (_database._Database.ContainsKey(_currentPicked))
+        if (_database.Database.ContainsKey(_currentPicked))
         {
             _ItemUse?.Invoke(_currentUse, _currentPicked);
             _currentUse = _currentPicked;
+            GameManager.Instance.SetState(GameState.ChangeKnife);
         }
     }
 

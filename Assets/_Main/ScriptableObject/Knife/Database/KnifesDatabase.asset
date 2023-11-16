@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf4b2458d86f5048ae6bc481cb49f51, type: 3}
   m_Name: KnifesDatabase
   m_EditorClassIdentifier: 
-  _pathFolder: Knife/Items/
-  _Database:
+  Database:
     list:
     - Key: 0
       Value: {fileID: 11400000, guid: 567472c37fb8c564fac311f2f812df47, type: 2}

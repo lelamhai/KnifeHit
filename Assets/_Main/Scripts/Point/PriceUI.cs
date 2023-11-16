@@ -8,8 +8,8 @@ public class PriceUI : BaseMonoBehaviour
 
     private void OnEnable()
     {
+        UpdatePriceUI(PriceManager.Instance.Price);
         PriceManager.Instance._UpdatePriceUI += UpdatePriceUI;
-        ShowPrice();
     }
 
     private void OnDisable()
@@ -20,11 +20,6 @@ public class PriceUI : BaseMonoBehaviour
     private void UpdatePriceUI(double price)
     {
         _text.text = price.ToString();
-    }
-
-    private void ShowPrice()
-    {
-        PriceManager.Instance.UpdatePriceUI();
     }
    
     protected override void SetDefaultValue()

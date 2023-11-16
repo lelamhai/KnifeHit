@@ -5,9 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Knifes Database", menuName = "Knife/Database/Knife/KnifesDatabase")]
 public class KnifesDatabase : BaseDatabase
 {
-    public GenericDictionary<int, ItemKnifeDatabase> _Database = new GenericDictionary<int, ItemKnifeDatabase>();
+    public GenericDictionary<int, ItemKnifeDatabase> Database = new GenericDictionary<int, ItemKnifeDatabase>();
     protected override void LoadScriptableObject()
     {
+        _pathFolder = "Trunk/Items/";
 #if UNITY_EDITOR
         _path = Path.Combine(Const.Path.PROJECT_FOLDER, Const.Path.PATH_SCRIPTOBJECT, _pathFolder);
         _pathAsset = Path.Combine(Const.Path.PATH_SCRIPTOBJECT, _pathFolder);
@@ -23,7 +24,7 @@ public class KnifesDatabase : BaseDatabase
                 return;
             }
             gameObject.Model.Id = i;
-            _Database.Add(i, gameObject);
+            Database.Add(i, gameObject);
         }
 #endif
     }
