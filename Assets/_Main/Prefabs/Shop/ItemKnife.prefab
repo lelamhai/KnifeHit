@@ -442,6 +442,7 @@ MonoBehaviour:
   _textPrice: {fileID: 4666284011145529488}
   _use: {fileID: 2151180101461064023}
   _frame: {fileID: 5420853006442516021}
+  _sound: {fileID: 8300000, guid: 63b449dc6836fe447b82beb9e9e6665d, type: 3}
   _itemData: {fileID: 0}
 --- !u!1 &5047371536249226111
 GameObject:

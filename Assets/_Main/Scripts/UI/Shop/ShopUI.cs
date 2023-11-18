@@ -51,7 +51,7 @@ public class ShopUI : Singleton<ShopUI>
         }
     }
 
-    public void BuyItem()
+    public void BuyItem(UnityAction callback)
     {
         if (_database.Database.ContainsKey(_currentPicked))
         {
@@ -60,6 +60,7 @@ public class ShopUI : Singleton<ShopUI>
             {
                 _SuccessBuy?.Invoke(_currentPicked);
                 _ItemUnlock?.Invoke(_database.Database[_currentPicked].Model.Unlock);
+                callback?.Invoke();
             }
         }
     }

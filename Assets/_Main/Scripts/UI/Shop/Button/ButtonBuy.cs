@@ -1,10 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ButtonBuy : BaseButton
 {
+    [SerializeField] private AudioClip _buyItem;
     private void OnEnable()
     {
         ShopUI.Instance._ItemUnlock += BuyItem;
@@ -22,6 +20,8 @@ public class ButtonBuy : BaseButton
 
     protected override void OnClickButton()
     {
-        ShopUI.Instance.BuyItem();
+        ShopUI.Instance.BuyItem(()=> {
+            AudioManager.Instance.PlaySound(_buyItem);
+        });
     }
 }

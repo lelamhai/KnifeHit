@@ -10,6 +10,7 @@ public class ItemKnifeUI : BaseMonoBehaviour
     [SerializeField] private TMP_Text _textPrice;
     [SerializeField] private Transform _use;
     [SerializeField] private Transform _frame;
+    [SerializeField] private AudioClip _sound;
 
     [Header("Database")]
     [SerializeField] private ItemKnifeDatabase _itemData;
@@ -33,6 +34,7 @@ public class ItemKnifeUI : BaseMonoBehaviour
     public void OnPickedItem()
     {
         ShopUI.Instance.PickedItem(_itemData.Model.Id);
+        AudioManager.Instance.PlaySound(_sound);
     }
 
     public void SetWrapApple(bool active)

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ButtonUse : BaseButton
 {
+    [SerializeField] private AudioClip _use;
+
     private void OnEnable()
     {
         ShopUI.Instance._ItemUnlock += PickItem;
@@ -23,5 +25,6 @@ public class ButtonUse : BaseButton
     protected override void OnClickButton()
     {
         ShopUI.Instance.UseItem();
+        AudioManager.Instance.PlaySound(_use);
     }
 }

@@ -15,8 +15,9 @@ MonoBehaviour:
   Model:
     Id: 5
     Name: Knife 06
+    Prefab: {fileID: 5838438807337179678, guid: 1478e1fff909d3144a869f75a1c8ab21, type: 3}
     Avatar: {fileID: 21300000, guid: 419418d04cd320c4f8b44de9b9e08cf2, type: 3}
     Description: This is Knife 06
     Price: 200
     Unlock: 0
-    Prefab: {fileID: 5838438807337179678, guid: 1478e1fff909d3144a869f75a1c8ab21, type: 3}
+    Use: 0
