@@ -8,6 +8,7 @@ public class SpawnKnife : Singleton<SpawnKnife>
     [SerializeField] private Transform _point;
     [SerializeField] private TypeKnife _currentKnife = TypeKnife.None;
     [SerializeField] private bool _canShooting = false;
+    private int _index = 0;
 
     private void Start()
     {
@@ -32,27 +33,46 @@ public class SpawnKnife : Singleton<SpawnKnife>
 
     public void BackHolder()
     {
-        _holders.BackHolder((int)_currentKnife);
+        //_holders.BackHolder((int)_currentKnife);
+        List<Transform> list = _holders.GetById((int)_currentKnife);
+        foreach (var item in list)
+        {
+            item.SetParent(this.transform);
+            item.gameObject.SetActive(false);
+        }
+
     }
 
     private void Shooting()
     {
         if (!_canShooting) return;
 
-        Transform parent = _holders.transform;
-        if (parent.childCount <= 0) return;
+        //Transform parent = _holders.transform;
+        //if (parent.childCount <= 0) return;
 
-        var move = _holders.transform.GetChild(0).GetComponent<MoveKnife>();
+        //var move = _holders.transform.GetChild(0).GetComponent<MoveKnife>();
+        //move.enabled = true;
+
+        //var box = _holders.transform.GetChild(0).GetComponent<BoxCollider2D>();
+        //box.enabled = true;
+
+        List<Transform> list = _holders.GetById((int)_currentKnife);
+        if (list.Count <= 0) return;
+
+        var move = list[_index].GetComponent<MoveKnife>();
         move.enabled = true;
 
-        var box = _holders.transform.GetChild(0).GetComponent<BoxCollider2D>();
+        var box = list[_index].GetComponent<BoxCollider2D>();
         box.enabled = true;
 
-        _holders.transform.GetChild(0).parent = null;
+        list[_index].parent = null;
+
+        _index++;
     }
 
     private void SetupLevel(int count)
     {
+        _index = 0;
         int hasCount = _holders.GetCountById((int)_currentKnife);
         if (hasCount < count)
         {

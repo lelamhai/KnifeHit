@@ -19,5 +19,5 @@ MonoBehaviour:
     Health: 3
     Damage: 0
     TrunkElement:
-    - Speed: 100
+    - Speed: 200
       Duration: 3

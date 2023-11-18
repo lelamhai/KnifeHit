@@ -5,7 +5,10 @@ using UnityEngine;
 public class UIManager : Singleton<UIManager>
 {
     [SerializeField] private List<GameObject> _listPanel = new List<GameObject>();
-    [SerializeField] private PanelName _currentPanelName = PanelName.MainMenu;
+    [SerializeField] private PanelName _currentPanelName = PanelName.None;
+
+    private Stack<int> _storgePanel = new Stack<int>();
+
     public PanelName CurrentPanelName
     {
         get => _currentPanelName;
@@ -13,7 +16,7 @@ public class UIManager : Singleton<UIManager>
 
     private void Awake()
     {
-        SetPanelState(_currentPanelName, StatePanel.Show);
+        SetPanelState(PanelName.MainMenu, StatePanel.Show);
     }
 
     public void SetPanelState(PanelName namePanel, StatePanel statePanel)
@@ -48,6 +51,21 @@ public class UIManager : Singleton<UIManager>
         panel.SetActive(false);
     }
 
+    public void clear()
+    {
+        _storgePanel.Clear();
+    }
+
+    public void Save()
+    {
+        _storgePanel.Push((int)_currentPanelName);
+    }
+
+    public void Load()
+    {
+        _currentPanelName = (PanelName)_storgePanel.Pop();
+    }
+
     protected override void SetDefaultValue()
     {
         LoadAllPanelUI();
@@ -65,11 +83,12 @@ public class UIManager : Singleton<UIManager>
 }
 public enum PanelName
 {
-    MainMenu,
-    GamePlay,
-    Shop,
-    GameOver,
-    FinishLevel
+    None = 0,
+    MainMenu = 1,
+    GamePlay = 2,
+    Shop = 3,
+    GameOver = 4,
+    FinishLevel = 5,
 }
 
 public enum StatePanel

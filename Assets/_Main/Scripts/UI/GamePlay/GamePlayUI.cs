@@ -1,10 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class GamePlayUI : Singleton<GamePlayUI>
+public class GamePlayUI : BaseMonoBehaviour
 {
+    private void OnEnable()
+    {
+        UIManager.Instance.clear();
+    }
+
     protected override void SetDefaultValue()
     {}
 }

@@ -83,8 +83,9 @@ public class ReceiveDamageTrunk : BaseReceiveDamage
         }
 
         GameManager.Instance.SetState(GameState.FinishLevel);
-        UIManager.Instance.SetPanelState(PanelName.GamePlay, StatePanel.Hide);
+        UIManager.Instance.SetPanelState(UIManager.Instance.CurrentPanelName, StatePanel.Hide);
         UIManager.Instance.SetPanelState(PanelName.FinishLevel, StatePanel.Show);
+        
     }
 
     protected override void SetDefaultValue()

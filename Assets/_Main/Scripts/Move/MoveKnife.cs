@@ -9,7 +9,6 @@ public class MoveKnife : BaseMonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("MoveKnife");
         Movement();
     }
 

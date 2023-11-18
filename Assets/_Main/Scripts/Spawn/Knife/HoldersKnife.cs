@@ -4,6 +4,10 @@ using UnityEngine;
 public class HoldersKnife : BaseMonoBehaviour
 {
     [SerializeField] protected GenericDictionary<int, List<Transform>> _poolObject = new GenericDictionary<int, List<Transform>>();
+    public GenericDictionary<int, List<Transform>> PoolObject
+    {
+        get => _poolObject;
+    }
 
     public int GetCountById(int id)
     {
@@ -54,6 +58,12 @@ public class HoldersKnife : BaseMonoBehaviour
             item.SetParent(this.transform);
             SetActive(item, false);
         }
+    }
+
+    public List<Transform> GetById(int key)
+    {
+        List<Transform> list = _poolObject[key];
+        return list;
     }
 
     public void Clear()
