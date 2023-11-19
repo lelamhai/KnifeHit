@@ -22,6 +22,7 @@ public class ButtonBuy : BaseButton
     {
         ShopUI.Instance.BuyItem(()=> {
             AudioManager.Instance.PlaySound(_buyItem);
+            DataPersistanceManager.Instance.SaveData();
         });
     }
 }

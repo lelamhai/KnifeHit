@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class MainMenuUI : BaseMonoBehaviour
 {
     private void OnEnable()

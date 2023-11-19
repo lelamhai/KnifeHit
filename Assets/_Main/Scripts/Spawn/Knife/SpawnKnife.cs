@@ -1,7 +1,6 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-public class SpawnKnife : Singleton<SpawnKnife>
+public class SpawnKnife : Singleton<SpawnKnife>, IDataPersistence
 {
     [SerializeField] private KnifesDatabase _data;
     [SerializeField] private HoldersKnife _holders;
@@ -10,6 +9,13 @@ public class SpawnKnife : Singleton<SpawnKnife>
     [SerializeField] private bool _canShooting = false;
     private int _index = 0;
     private List<Transform> _listItem;
+
+    private GenericDictionary<int, KnifeModel> _saveKnife = new GenericDictionary<int, KnifeModel>();
+
+    private void Awake()
+    {
+        RegisterData();
+    }
 
     private void Start()
     {
@@ -134,6 +140,31 @@ public class SpawnKnife : Singleton<SpawnKnife>
 
     protected override void SetDefaultValue()
     {}
+
+    public void LoadData(GameData data)
+    {
+        for (int i = 0; i < _data.Database.Count; i++)
+        {
+            _data.Database[i].Model = data.Knife[i];
+        }
+    }
+
+    public void SaveData(GameData data)
+    {
+        _saveKnife.Clear();
+
+        foreach (var item in _data.Database)
+        {
+            _saveKnife.Add(item.Key, item.Value.Model);
+        }
+
+        data.Knife = _saveKnife;
+    }
+
+    public void RegisterData()
+    {
+        DataPersistanceManager.Instance.RegisterEventDataPersistance(this);
+    }
 }
 
 public enum TypeKnife

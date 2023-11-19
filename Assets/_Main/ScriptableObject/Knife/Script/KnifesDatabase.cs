@@ -8,7 +8,7 @@ public class KnifesDatabase : BaseDatabase
     public GenericDictionary<int, ItemKnifeDatabase> Database = new GenericDictionary<int, ItemKnifeDatabase>();
     protected override void LoadScriptableObject()
     {
-        _pathFolder = "Trunk/Items/";
+        _pathFolder = "Knife/Items/";
 #if UNITY_EDITOR
         _path = Path.Combine(Const.Path.PROJECT_FOLDER, Const.Path.PATH_SCRIPTOBJECT, _pathFolder);
         _pathAsset = Path.Combine(Const.Path.PATH_SCRIPTOBJECT, _pathFolder);

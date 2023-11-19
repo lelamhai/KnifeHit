@@ -5,7 +5,7 @@ using UnityEngine;
 public class DataPersistanceManager : Singleton<DataPersistanceManager>
 {
     [Header("File Storage Config")]
-    [SerializeField] private string _fileName;
+    [SerializeField] private string _fileName = "GameData.game";
     [SerializeField] private bool _useEncryption;
 
     private List<IDataPersistence> _dataPersistenceObjects = new List<IDataPersistence>();
@@ -15,11 +15,11 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
     private void Awake()
     {
         this._dataHandler = new FileDataHandler(Application.persistentDataPath, _fileName, _useEncryption);
-        LoadGame();
     }
-    private void OnDestroy()
+
+    private void Start()
     {
-        SaveData();
+        LoadGame();
     }
 
     private void NewGame()
@@ -35,6 +35,7 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
         {
             Debug.Log("No data was found. Initailizing data to defaults");
             NewGame();
+            return;
         }
 
         foreach (IDataPersistence dataPersistenceObj in _dataPersistenceObjects)

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : Singleton<LevelManager>, IDataPersistence
@@ -10,6 +7,11 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
     public int Level
     {
         get => _data.Level;
+    }
+
+    private void Awake()
+    {
+        RegisterData();
     }
 
     private void OnEnable()
@@ -27,6 +29,7 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
     private void FinishLevel()
     {
         _data.Level++;
+        DataPersistanceManager.Instance.SaveData();
     }
 
     private void Initialize()

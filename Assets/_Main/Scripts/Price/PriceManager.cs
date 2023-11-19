@@ -12,7 +12,7 @@ public class PriceManager : Singleton<PriceManager>, IDataPersistence
 
     public UnityAction<double> _UpdatePriceUI;
 
-    private void Start()
+    private void Awake()
     {
         RegisterData();
     }

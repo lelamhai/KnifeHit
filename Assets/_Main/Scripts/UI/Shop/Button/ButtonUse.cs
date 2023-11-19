@@ -26,5 +26,6 @@ public class ButtonUse : BaseButton
     {
         ShopUI.Instance.UseItem();
         AudioManager.Instance.PlaySound(_use);
+        DataPersistanceManager.Instance.SaveData();
     }
 }
