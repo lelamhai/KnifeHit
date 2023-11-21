@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2921877889047561365}
   - component: {fileID: -7446268758451744091}
   m_Layer: 0
-  m_Name: EffectPieceWood
+  m_Name: Effect_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

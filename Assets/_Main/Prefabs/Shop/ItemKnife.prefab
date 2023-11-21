@@ -412,19 +412,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5174134510331909918}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 207474730078224657}
-        m_TargetAssemblyTypeName: ItemKnifeUI, Assembly-CSharp
-        m_MethodName: OnPickedItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &207474730078224657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09fb21080744c4948b342265cf6537dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 1691162428515727440}
   _avatar: {fileID: 5889186597669403018}
   _wrapApple: {fileID: 5184041321578903855}
   _textPrice: {fileID: 4666284011145529488}

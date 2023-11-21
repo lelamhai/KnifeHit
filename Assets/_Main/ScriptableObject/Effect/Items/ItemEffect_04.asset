@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a64ec8b6d2dbc3438999a872ae0298e, type: 3}
-  m_Name: ItemEffectShop
+  m_Name: ItemEffect_04
   m_EditorClassIdentifier: 
   Model:
     Id: 1
-    Name: Shop
-    Prefab: {fileID: 3298380885754084489, guid: 2041fa9e0647ec44496bc407d9dfe0db, type: 3}
+    Name: Reward
+    Prefab: {fileID: 8485573886989289024, guid: c3304b09ac1d2084d99493bba81b219e, type: 3}

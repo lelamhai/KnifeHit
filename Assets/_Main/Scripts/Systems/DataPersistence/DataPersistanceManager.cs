@@ -15,11 +15,12 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
     private void Awake()
     {
         this._dataHandler = new FileDataHandler(Application.persistentDataPath, _fileName, _useEncryption);
+        LoadGame();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        LoadGame();
+        
     }
 
     private void NewGame()

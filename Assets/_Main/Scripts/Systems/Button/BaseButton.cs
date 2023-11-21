@@ -5,7 +5,7 @@ public abstract class BaseButton : BaseMonoBehaviour
 {
     [SerializeField] protected Button _button;
 
-    private void Start()
+    protected virtual void Start()
     {
         _button.onClick.AddListener(OnClickButton);
     }

@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class ItemKnifeUI : BaseMonoBehaviour
+public class ItemKnifeUI : BaseButton
 {
     [Header("UI")]
     [SerializeField] private Image _avatar;
@@ -32,6 +32,12 @@ public class ItemKnifeUI : BaseMonoBehaviour
     }
 
     public void OnPickedItem()
+    {
+        //ShopUI.Instance.PickedItem(_itemData.Model.Id);
+        //AudioManager.Instance.PlaySound(_sound);
+    }
+
+    protected override void OnClickButton()
     {
         ShopUI.Instance.PickedItem(_itemData.Model.Id);
         AudioManager.Instance.PlaySound(_sound);

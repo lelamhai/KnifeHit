@@ -20,7 +20,10 @@ public class SpawnEffect : Singleton<SpawnEffect>
         if(effect == null)
         {
             var clone = Instantiate(prefab);
-            clone.position = point.position;
+            if((int)_currentEffect < 2)
+            {
+                clone.position = point.position;
+            }
             clone.SetParent(_holders.transform);
             _holders.Add((int)_currentEffect, clone);
         }
@@ -34,6 +37,7 @@ public class SpawnEffect : Singleton<SpawnEffect>
 public enum TypeEffect
 {
     Apple = 0,
-    Shop = 1,
-    Wood = 2,
+    Wood = 1,
+    Shop = 2,
+    Reward = 3
 }
