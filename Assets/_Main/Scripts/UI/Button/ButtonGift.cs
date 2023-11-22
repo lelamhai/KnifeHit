@@ -66,7 +66,6 @@ public class ButtonGift : BaseButton, IDataPersistence
             case -1:
                 if (_timer < 0)
                 {
-                    Debug.Log("1.0");
                     _timer = (int)Mathf.Abs(_timer);
                     StartCoroutine(IECountDown((result) => {
                         _canReward = true;
