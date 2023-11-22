@@ -1521,7 +1521,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -75}
-  m_SizeDelta: {x: -100, y: -150}
+  m_SizeDelta: {x: 0, y: -150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &397531237
 MonoBehaviour:
@@ -1796,7 +1796,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &463077879
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2538,7 +2538,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &611624622
 MonoBehaviour:
@@ -5693,8 +5693,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 0}
-  m_SizeDelta: {x: 64, y: 64}
+  m_AnchoredPosition: {x: 70, y: 0}
+  m_SizeDelta: {x: 44, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1442610378
 MonoBehaviour:
@@ -6834,6 +6834,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1878841841}
     m_Modifications:
+    - target: {fileID: 312742319190372007, guid: a203d05f4fc7fa74fb8724bfc9674e67, type: 3}
+      propertyPath: _audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: be4410696e48b6d4f8b689d9c94991c1, type: 3}
     - target: {fileID: 5207548896477485585, guid: a203d05f4fc7fa74fb8724bfc9674e67, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

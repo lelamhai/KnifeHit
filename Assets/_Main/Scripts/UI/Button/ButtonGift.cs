@@ -12,6 +12,8 @@ public class ButtonGift : BaseButton, IDataPersistence
     [SerializeField] private int _hours;
     [SerializeField] private int _minutes;
     [SerializeField] private int _seconds;
+    [SerializeField] private AudioClip _audioClip;
+
 
     private DateTime _data = DateTime.Now;
     private DateTime _today;
@@ -97,6 +99,7 @@ public class ButtonGift : BaseButton, IDataPersistence
         SpawnEffect.Instance.SpawnTypeEffect(TypeEffect.Reward);
         PriceManager.Instance.AddPrice(10);
         DataPersistanceManager.Instance.SaveData();
+        AudioManager.Instance.PlaySound(_audioClip);
         _canReward = false;
         _data = DateTime.Now;
         StartTimer();
