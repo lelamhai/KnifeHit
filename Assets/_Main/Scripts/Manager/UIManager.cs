@@ -89,6 +89,7 @@ public enum PanelName
     Shop = 3,
     GameOver = 4,
     FinishLevel = 5,
+    Setting
 }
 
 public enum StatePanel
