@@ -14,13 +14,9 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
 
     private void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
         this._dataHandler = new FileDataHandler(Application.persistentDataPath, _fileName, _useEncryption);
         LoadGame();
-    }
-
-    private void OnEnable()
-    {
-        
     }
 
     private void NewGame()

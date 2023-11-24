@@ -1,13 +1,13 @@
 using System;
 
-
 [Serializable]
 public class GameData
 {
     public double Price;
     public int Level;
-    public string TimeReward;
-    //public Reward Reward;
+    public Sound Sound;
+    public Gift Gift;
+    public bool Vibration;
 
     public GenericDictionary<int, KnifeModel> Knife;
 
@@ -15,22 +15,35 @@ public class GameData
     {
         this.Price = 0;
         this.Level = 0;
-        this.TimeReward = string.Empty;
-        //this.Reward = new Reward();
-        Knife = new GenericDictionary<int, KnifeModel>();
+        this.Vibration = true;
+        this.Sound = new Sound();
+        this.Gift = new Gift();
+        this.Knife = new GenericDictionary<int, KnifeModel>();
     }
 }
 
+[Serializable]
+public struct Sound
+{
+    public float VolumeBG;
+    public float VolumeFX;
 
-//[Serializable]
-//public struct Reward
-//{
-//    public bool CanReward;
-//    public string TimeReward;
+    public Sound(float volumeBG, float volumeFX)
+    {
+        this.VolumeBG = volumeBG;
+        this.VolumeFX = volumeFX;
+    }
+}
 
-//    public Reward(bool canReward, string timeReward)
-//    {
-//        this.CanReward = canReward;
-//        this.TimeReward = timeReward;
-//    }
-//}
+[Serializable]
+public struct Gift
+{
+    public string Time;
+    public int Price;
+
+    public Gift(string time)
+    {
+        this.Time = time;
+        this.Price = -1;
+    }
+}

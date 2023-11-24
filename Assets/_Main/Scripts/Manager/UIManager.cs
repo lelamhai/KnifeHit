@@ -5,7 +5,7 @@ using UnityEngine;
 public class UIManager : Singleton<UIManager>
 {
     [SerializeField] private List<GameObject> _listPanel = new List<GameObject>();
-    [SerializeField] private PanelName _currentPanelName = PanelName.None;
+    [SerializeField] private PanelName _currentPanelName = PanelName.MainMenu;
 
     private Stack<int> _storgePanel = new Stack<int>();
 
@@ -16,7 +16,7 @@ public class UIManager : Singleton<UIManager>
 
     private void Awake()
     {
-        SetPanelState(PanelName.MainMenu, StatePanel.Show);
+        SetPanelState(_currentPanelName, StatePanel.Show);
     }
 
     public void SetPanelState(PanelName namePanel, StatePanel statePanel)

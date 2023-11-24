@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class ButtonGift : BaseButton, IDataPersistence
 {
+    [SerializeField] private GiftRewardDatabase _data;
     [SerializeField] private TimerUI _displayUI;
 
     [SerializeField] private int _days;
@@ -15,9 +16,10 @@ public class ButtonGift : BaseButton, IDataPersistence
     [SerializeField] private AudioClip _audioClip;
 
 
-    private DateTime _data = DateTime.Now;
+
+    private DateTime _date = DateTime.Now;
     private DateTime _today;
-    private bool _canReward = true;
+    private bool _canReward = false;
     private float _timer = 0;
 
     private void Awake()
@@ -30,44 +32,41 @@ public class ButtonGift : BaseButton, IDataPersistence
         StartTimer();
     }
 
-    protected override void Start()
-    {
-        base.Start();
-        StartTimer();
-    }
-
     private void OnDisable()
     {
         StopAllCoroutines();
         TimeSpan timeSpan = new TimeSpan(-_days, -_hours, -_minutes, -_seconds);
-        _data = _data.Add(timeSpan);
+        _date = _date.Add(timeSpan);
     }
 
     private void StartTimer()
     {
-        if (_canReward)
+        if (string.IsNullOrEmpty(_data.Time))
         {
             _displayUI.Format_Reward();
+            _canReward = true;
             return;
+        } else
+        {
+            _date = ParseDateTime(_data.Time);
         }
 
-        _canReward = false;
-
         TimeSpan timeSpan = new TimeSpan(_days, _hours, _minutes, _seconds);
-        _data = _data.Add(timeSpan);
+        _date = _date.Add(timeSpan);
 
         _today = DateTime.Now;
 
-        _timer = (int)_today.Subtract(_data).TotalSeconds;
+        _timer = (int)_today.Subtract(_date).TotalSeconds;
 
-        int result = DateTime.Compare(_today, _data);
-        switch(result)
+        int result = DateTime.Compare(_today, _date);
+        switch (result)
         {
             case -1:
                 if (_timer < 0)
                 {
                     _timer = (int)Mathf.Abs(_timer);
-                    StartCoroutine(IECountDown((result) => {
+                    StartCoroutine(IECountDown((result) =>
+                    {
                         _canReward = true;
                         _displayUI.Format_Reward();
                     }));
@@ -94,13 +93,11 @@ public class ButtonGift : BaseButton, IDataPersistence
     protected override void OnClickButton()
     {
         if (!_canReward) return;
-
         SpawnEffect.Instance.SpawnTypeEffect(TypeEffect.Reward);
-        PriceManager.Instance.AddPrice(10);
+        PriceManager.Instance.AddPrice(_data.Price);
         DataPersistanceManager.Instance.SaveData();
         AudioManager.Instance.PlaySound(_audioClip);
         _canReward = false;
-        _data = DateTime.Now;
         StartTimer();
     }
 
@@ -118,23 +115,21 @@ public class ButtonGift : BaseButton, IDataPersistence
     }
 
     public void LoadData(GameData data)
-    {
-        _canReward = false;
-
-        //_data = ParseDateTime(data.Reward.TimeReward);
-        _data = ParseDateTime(data.TimeReward);
-    }
+    {}
 
     public void SaveData(GameData data)
     {
         if (!_canReward) return;
 
-        //Reward reward = new Reward();
-        //reward.CanReward = _canReward;
-        //reward.TimeReward = ParseTimestamp(_data);
-        //data.Reward = reward;
+        _date = DateTime.Now;
+        string date = ParseTimestamp(_date);
+        data.Gift.Time = date;
 
-        data.TimeReward = ParseTimestamp(_data);
+
+        int price = _data.Price;
+        data.Gift.Price = price;
+
+        _data.Time = date;
     }
 
     public void RegisterData()

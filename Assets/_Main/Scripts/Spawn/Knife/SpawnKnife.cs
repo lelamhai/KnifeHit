@@ -46,7 +46,6 @@ public class SpawnKnife : Singleton<SpawnKnife>, IDataPersistence
             item.SetParent(this.transform);
             item.gameObject.SetActive(false);
         }
-
     }
 
     private void Shooting()
@@ -142,12 +141,7 @@ public class SpawnKnife : Singleton<SpawnKnife>, IDataPersistence
     {}
 
     public void LoadData(GameData data)
-    {
-        for (int i = 0; i < _data.Database.Count; i++)
-        {
-            _data.Database[i].Model = data.Knife[i];
-        }
-    }
+    {}
 
     public void SaveData(GameData data)
     {

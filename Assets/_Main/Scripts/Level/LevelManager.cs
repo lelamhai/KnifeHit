@@ -43,9 +43,7 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
     }
 
     public void LoadData(GameData data)
-    {
-        _data.Level = data.Level;
-    }
+    {}
 
     public void SaveData(GameData data)
     {

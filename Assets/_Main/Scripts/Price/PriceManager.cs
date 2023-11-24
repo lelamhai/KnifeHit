@@ -47,9 +47,7 @@ public class PriceManager : Singleton<PriceManager>, IDataPersistence
     {}
 
     public void LoadData(GameData data)
-    {
-        _data.Price = data.Price;
-    }
+    {}
 
     public void SaveData(GameData data)
     {

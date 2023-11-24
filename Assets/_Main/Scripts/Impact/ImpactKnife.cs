@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ImpactKnife : BaseImpact
 {
+    [SerializeField] private VibratorDatabase _data;
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private HitKnife _hitKnife;
 
@@ -15,6 +16,11 @@ public class ImpactKnife : BaseImpact
             _hitKnife.PlaySoundHit();
             _rigidbody2D.isKinematic = true;
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, -2);
+
+            if(_data.Vibration)
+            {
+                Handheld.Vibrate();
+            }
 
             GameManager.Instance.SetState(GameState.GameOver);
             return;
