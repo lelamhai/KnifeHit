@@ -37,6 +37,7 @@ public class ButtonGift : BaseButton, IDataPersistence
         StopAllCoroutines();
         TimeSpan timeSpan = new TimeSpan(-_days, -_hours, -_minutes, -_seconds);
         _date = _date.Add(timeSpan);
+        _canReward = false;
     }
 
     private void StartTimer()

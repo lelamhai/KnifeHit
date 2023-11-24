@@ -16,7 +16,7 @@ public class Switch : BaseMonoBehaviour, IDataPersistence
         RegisterData();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         _active = _data.Vibration;
         UpdateSwitch();
@@ -33,6 +33,7 @@ public class Switch : BaseMonoBehaviour, IDataPersistence
     {
         _active = true;
         _data.Vibration = _active;
+        Handheld.Vibrate();
         UpdateSwitch();
     }
 
@@ -56,6 +57,8 @@ public class Switch : BaseMonoBehaviour, IDataPersistence
             _on.gameObject.SetActive(_active);
             _off.gameObject.SetActive(!_active);
         }
+
+        _data.Vibration = _active;
     }
 
     protected override void SetDefaultValue()
