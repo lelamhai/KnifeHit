@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ReceiveDamageTrunk : BaseReceiveDamage
 {
+    [SerializeField] private DeadTrunk _deadTrunk;
     [SerializeField] private ItemTrunkDatabase _data;
     [SerializeField] private List<Transform> _listKnifeWood = new List<Transform>();
     private string _pathFile;
@@ -19,6 +20,7 @@ public class ReceiveDamageTrunk : BaseReceiveDamage
   
     protected override void DeadGameObject()
     {
+        _deadTrunk.PlaySoundDead();
         StartCoroutine(DelayKnife());
     }
 
@@ -90,6 +92,7 @@ public class ReceiveDamageTrunk : BaseReceiveDamage
 
     protected override void SetDefaultValue()
     {
+        _deadTrunk = this.GetComponent<DeadTrunk>();
 #if UNITY_EDITOR
         _pathFile = "Trunk/Items/ItemTrunk00.asset";
         _pathAsset = Path.Combine(Const.Path.PATH_SCRIPTOBJECT, _pathFile);
