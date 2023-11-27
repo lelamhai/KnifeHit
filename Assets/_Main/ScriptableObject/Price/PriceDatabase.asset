@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1191c0bb4bba9b649bb98396899c6356, type: 3}
   m_Name: PriceDatabase
   m_EditorClassIdentifier: 
-  Price: 300
+  Price: 100
