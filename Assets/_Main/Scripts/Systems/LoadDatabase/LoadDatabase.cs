@@ -11,9 +11,6 @@ public class LoadDatabase : BaseMonoBehaviour, IDataPersistence
     [SerializeField] private SoundDatabase _soundDatabase;
     [SerializeField] private GiftRewardDatabase _giftReward;
     [SerializeField] private VibratorDatabase _vibratorDatabase;
-
-    [SerializeField] private Slider _loading;
-
     private void Awake()
     {
         RegisterData();
@@ -21,7 +18,7 @@ public class LoadDatabase : BaseMonoBehaviour, IDataPersistence
 
     private void Start()
     {
-        StartCoroutine(LoadingASync("GamePlay"));
+        SceneManager.LoadSceneAsync("GamePlay");
     }
 
     public void RegisterData()
@@ -52,18 +49,6 @@ public class LoadDatabase : BaseMonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {}
-
-    private IEnumerator LoadingASync(string name)
-    {
-        UnityEngine.AsyncOperation load = SceneManager.LoadSceneAsync(name);
-        
-        while(!load.isDone)
-        {
-            float progressValue = Mathf.Clamp01(load.progress/0.9f);
-            _loading.value = progressValue;
-            yield return null;
-        }
-    }
 
     private void LoadKnife(GameData data)
     {

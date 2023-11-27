@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -6,6 +7,7 @@ public class ShopUI : Singleton<ShopUI>
 {
     [SerializeField] private KnifesDatabase _database;
     [SerializeField] private Image _imagePickedKnife;
+    [SerializeField] private Animator _animator;
 
     public UnityAction<KnifesDatabase> _LoadDatabase;
 
@@ -61,8 +63,18 @@ public class ShopUI : Singleton<ShopUI>
                 _SuccessBuy?.Invoke(_currentPicked);
                 _ItemUnlock?.Invoke(_database.Database[_currentPicked].Model.Unlock);
                 callback?.Invoke();
+            } else
+            {
+                _animator.SetTrigger("Open");
+                StartCoroutine(CloseNotification());
             }
         }
+    }
+
+    private IEnumerator CloseNotification()
+    {
+        yield return new WaitForSeconds(2f);
+        _animator.SetTrigger("Close");
     }
 
     public void UseItem()
