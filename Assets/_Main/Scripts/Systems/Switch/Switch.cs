@@ -46,18 +46,9 @@ public class Switch : BaseMonoBehaviour, IDataPersistence
 
     private void UpdateSwitch()
     {
-        if(_active)
-        {
-            _animatorHandle.SetBool("Active", _active);
-            _on.gameObject.SetActive(_active);
-            _off.gameObject.SetActive(!_active);
-        } else
-        {
-            _animatorHandle.SetBool("Active", _active);
-            _on.gameObject.SetActive(_active);
-            _off.gameObject.SetActive(!_active);
-        }
-
+        _animatorHandle.SetBool("Active", _active);
+        _on.gameObject.SetActive(_active);
+        _off.gameObject.SetActive(!_active);
         _data.Vibration = _active;
     }
 
